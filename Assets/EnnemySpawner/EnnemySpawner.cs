@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     private float spawnTimer;
 
-    void Update()
+    private void Update()
     {
         if (spawnTimer >= spawnDelay)
         {
