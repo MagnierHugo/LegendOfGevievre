@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class Goblin : Monster
 {
-    public Goblin()
-    {
-        pv = 10;
-        atk = 5;
-        vit = 5;
-    }
     
+    public override void Init(int pv = 10, int atk = 5, int vit = 5)
+    {
+        base.Init(pv, atk, vit);
+    }
 }

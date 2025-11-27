@@ -1,28 +1,21 @@
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
-public class Monster : MonoBehaviour
+public abstract class Monster : MonoBehaviour
 {
-    protected int pos_x;
-    protected int pos_y;
-    [SerializeField] protected int pv = 10;
-    [SerializeField] protected int atk = 5;
-    [SerializeField] protected int vit = 5;
-    public int getpv()
+    [field: SerializeField] public int Pv { get; protected set; } = 10;
+    [field: SerializeField] public int Atk { get; protected set; } = 5;
+    [field: SerializeField] public int Vit { get; protected set; } = 5;
+
+    public virtual void Init(int pv, int atk, int vit)
     {
-        return pv;
-    }
-    public int getatk()
-    {
-        return atk;
-    }
-    public int getvit()
-    {
-        return vit;
+        Pv = pv;
+        Atk = atk;
+        Vit = vit;
     }
 
-    public void degat_recu(int atk)
+    public void PrendreDegats(int atk)
     {
-        pv -= atk;
+        Pv -= atk;
     }
 }

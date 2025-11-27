@@ -5,26 +5,23 @@ using UnityEngine;
 
 public class Cyclope : Monster
 {
-    Vector3 player = new Vector3(0, 0, 0);
-    [SerializeField] private Transform cyclopeTransform;
+    private Transform player;
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private int cooldown_tir = 0;
-    [SerializeField] private int cooldown_tir_max = 500;
+    private float cooldownTir = 0;
+    [SerializeField] private int cooldownTirMax = 5;
 
 
-    public Cyclope()
+    public override void Init(int pv = 50, int atk = 10, int vit = 3)
     {
-        pv = 50;
-        atk = 10;
-        vit = 3;
+        base.Init(pv, atk, vit);
     }
-    void Update()
+    private void Update()
     {
-        cooldown_tir += 1;
-        if (cooldown_tir == cooldown_tir_max)
+        cooldownTir += Time.deltaTime;
+        if (cooldownTir >= cooldownTirMax)
         {
-            cooldown_tir = 0;
-            GameObject newProjectile = Instantiate(projectilePrefab, cyclopeTransform.position, Quaternion.identity);
+            cooldownTir = 0;
+            GameObject newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             Projectile_ennemies new_projectile = newProjectile.GetComponent<Projectile_ennemies>();
             new_projectile.SetDirection(player);
 

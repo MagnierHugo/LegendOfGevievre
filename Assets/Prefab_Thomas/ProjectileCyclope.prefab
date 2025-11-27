@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1469048281477452653}
   - component: {fileID: 9092138278371808927}
   m_Layer: 0
-  m_Name: nom
+  m_Name: ProjectileCyclope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

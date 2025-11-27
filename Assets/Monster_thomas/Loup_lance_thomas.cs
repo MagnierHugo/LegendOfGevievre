@@ -1,12 +1,10 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
-public class Loup_monte : Monster
+public class LoupGarou : Monster
 {
-    public Loup_monte()
+    public override void Init(int pv = 15, int atk = 7, int vit = 8)
     {
-        pv = 15;
-        atk = 7;
-        vit = 8;
+        base.Init(pv, atk, vit);
     }
-
 }
