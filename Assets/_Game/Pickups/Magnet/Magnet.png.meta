@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1178caed3aabef74caa9082e10c55e47
+guid: f4ea9368760810149b7b19204d9c0e50
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3753825769889500098
-    second: sword_0
+      213: 1535325516486818496
+    second: Magnet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sword_0
+      name: Magnet_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 2
-        width: 26
-        height: 26
+        x: 23
+        y: 19
+        width: 82
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e347705d95bb7ebc0800000000000000
-      internalID: -3753825769889500098
+      spriteID: 0ca3ac83c629e4510800000000000000
+      internalID: 1535325516486818496
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sword_0: -3753825769889500098
+      Magnet_0: 1535325516486818496
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

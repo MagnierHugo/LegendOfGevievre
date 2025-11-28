@@ -16,5 +16,4 @@ public class BombWeapon : BaseWeapon
             ;
         }
     }
-    public override void Upgrade() { }
 }

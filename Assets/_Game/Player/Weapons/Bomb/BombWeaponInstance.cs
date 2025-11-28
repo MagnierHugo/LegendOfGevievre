@@ -51,7 +51,6 @@ public class BombWeaponInstance : MonoBehaviour
     {
         // Move parabolic
         Vector3 velocity = new Vector3(direction.x * projectileSpeed, direction.y * launchForce) * Time.deltaTime;
-        print(velocity);
 
         transform.position += velocity;
 
