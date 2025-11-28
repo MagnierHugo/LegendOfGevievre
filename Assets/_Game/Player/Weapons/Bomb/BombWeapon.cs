@@ -4,16 +4,20 @@ using UnityEngine;
 public class BombWeapon : BaseWeapon
 {
     [SerializeField] private GameObject bombPrefab;
-    [SerializeField] private int bombCount = 1;
 
     public override void Attack(GameObject gameObject, Vector2 direction) 
     {
-        for (int i = 0; i < bombCount; i++)
+        for (int i = 0; i < weaponLvl; i++)
         {
             Instantiate(bombPrefab, gameObject.transform.position, Quaternion.identity)
                 .GetComponent<BombWeaponInstance>()
-                .Init(direction)
+                .Init(direction, weaponLvl)
             ;
         }
+    }
+
+    protected override void UpgradeImpl()
+    {
+
     }
 }
