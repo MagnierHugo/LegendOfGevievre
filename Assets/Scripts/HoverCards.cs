@@ -6,7 +6,7 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class HoverCards : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private Vector3 hoverScale; // zoom léger
+    private Vector3 hoverScale;
     private Vector3 baseScale;
 
     private PowerUpData linkedData;
