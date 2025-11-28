@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20ae75a33907744d8f44c41a308007a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeShiftSpeed: 10
+  sizeShiftSpeed: 4
   initialSize: 5
   missingTextureSprite: {fileID: -3296484348542194960, guid: ca8775ed884c7a24f8fb0e25d2e4c38b, type: 3}
   maskTransform: {fileID: 923741615}
