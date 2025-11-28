@@ -1,33 +1,27 @@
+using System;
 using UnityEngine;
 
 public class BaseMonster : MonoBehaviour
 {
-    [SerializeField] public Transform monsterTransform = null;
-    [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float damage = 10f;
+    [field: SerializeField] public int HealthPoints { get; protected set; } = 10;
+    [field: SerializeField] public int AttackDamage { get; protected set; } = 5;
+    [field: SerializeField] public float MoveSpeed { get; protected set; } = 2f;
 
-    public void Awake()
+    public void Awake() => JobSystemManager.RegisterEnemy(transform);
+    private void OnDestroy() => JobSystemManager.UnregisterEnemy(transform);
+
+    public void TakeDamage(int damage)
     {
-        JobSystemManager.RegisterEnemy(monsterTransform);
+        HealthPoints -= damage;
+        if (HealthPoints <= 0)
+            Die();
     }
 
-    private void OnDestroy()
+    private void Die()
     {
-        JobSystemManager.UnregisterEnemy(monsterTransform);     
+        OnDeath();
+        Destroy(gameObject);
     }
 
-    public float GetMoveSpeed()
-    {
-        return moveSpeed;
-    }
-
-    public float GetDamage()
-    {
-        return damage;
-    }
-
-    private void OnDeath()
-    {
-
-    }
+    protected virtual void OnDeath() { }
 }
