@@ -8,28 +8,31 @@ public class BowWeapon : BaseWeapon
 
     private int numberOfArrowForChain = 10;
 
-    private Vector2 arrowDiagonalOffset = new Vector2(1, 0.2f);
-
     public override void Attack(GameObject gameObject, Vector2 direction) 
     {
         MonoBehaviour coroutineRunner = gameObject.GetComponent<PlayerMovement>();
 
         switch (weaponLvl)
         {
-            case 1:
+            case 2:
                 Instantiate(arrowPrefab, gameObject.transform.position, Quaternion.identity)
                     .Init(gameObject.GetComponent<PlayerMovement>(), direction);
                 break;
 
-            case 2:
+            case 1:
+                Quaternion rightRotation = Quaternion.Euler(0, 0, 45f);
+                Quaternion leftRotation = Quaternion.Euler(0, 0, -45f);
+                Vector2 rightRotatedDirection = rightRotation * direction;
+                Vector2 leftRotatedDirection = leftRotation * direction;
+
                 Instantiate(arrowPrefab, gameObject.transform.position, Quaternion.identity)
                     .Init(gameObject.GetComponent<PlayerMovement>(), direction);
 
                 Instantiate(arrowPrefab, gameObject.transform.position, Quaternion.identity)
-                    .Init(gameObject.GetComponent<PlayerMovement>(), direction + arrowDiagonalOffset);
+                    .Init(gameObject.GetComponent<PlayerMovement>(), rightRotatedDirection);
 
                 Instantiate(arrowPrefab, gameObject.transform.position, Quaternion.identity)
-                    .Init(gameObject.GetComponent<PlayerMovement>(), direction - arrowDiagonalOffset);
+                    .Init(gameObject.GetComponent<PlayerMovement>(), leftRotatedDirection);
                 break;
 
             case >= 3:
