@@ -242,7 +242,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4562124255563678594, guid: 5836114c7b5419d49923ac395909fae8, type: 3}
       propertyPath: m_Name
-      value: Map de samer
+      value: Map
       objectReference: {fileID: 0}
     - target: {fileID: 6190086963140676797, guid: 5836114c7b5419d49923ac395909fae8, type: 3}
       propertyPath: m_LocalPosition.x

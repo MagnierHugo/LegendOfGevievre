@@ -5,16 +5,23 @@ public class BombWeapon : BaseWeapon
 {
     [SerializeField] private GameObject bombPrefab;
 
-    public override void Attack(GameObject gameObject, Vector2 direction) 
+    public override void Attack(GameObject gameObject, Vector2 baseDir)
     {
-        for (int i = 0; i < weaponLvl; i++)
+        int count = BombWeaponInstance.level;
+        float step = 360f / count;  // how many degrees between bombs
+
+        for (int i = 0; i < count; i++)
         {
-            // Slightly shift direction with multiple bombs
-            direction += new Vector2(i * 0.1f, -i * 0.1f);
+            // rotation angle for this bomb
+            float angle = i * step;
+
+            // rotate base direction by angle
+            Vector2 dir = Quaternion.Euler(0, 0, angle) * baseDir;
+
+            // spawn projectile
             Instantiate(bombPrefab, gameObject.transform.position, Quaternion.identity)
                 .GetComponent<BombWeaponInstance>()
-                .Init(direction, weaponLvl)
-            ;
+                .Init(dir.normalized, weaponLvl);
         }
     }
 

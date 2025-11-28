@@ -103,6 +103,7 @@ public class PlayerXP : MonoBehaviour
             powerUpData.powerUp.Upgrade();
         else
         {
+            powerUpData.powerUp.ResetWeaponLevel();
             playerAttack.weapons.Add(powerUpData.powerUp);
         }
 
