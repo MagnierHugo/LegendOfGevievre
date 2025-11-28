@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
     static GameManager()
     {
         GameObject gameObject = new GameObject("GameManager");
@@ -11,13 +12,17 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public static GameManager Instance { get; private set; }
+    [SerializeField] private Transform playerTransform;
 
-    private float timePassed = 0f;
-    public static float TimeElapsed => Instance.timePassed;
+    private float timeElapsed = 0f;
+    public static float TimeElapsed => Instance.timeElapsed;
+
+    private void Start() => JobSystemManager.Init();
 
     private void Update()
     {
-        timePassed += Time.deltaTime;
+        timeElapsed += Time.deltaTime;
+
+        JobSystemManager.MoveEnemies(playerTransform);
     }
 }
