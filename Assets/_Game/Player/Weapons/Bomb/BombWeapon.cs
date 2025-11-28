@@ -10,5 +10,5 @@ public class BombWeapon : BaseWeapon
         Instantiate(bombPrefab);
         Debug.Log("Instanciated bomb");
     }
-    public override void UpgradeInstance() { }
+    public override void Upgrade() { }
 }

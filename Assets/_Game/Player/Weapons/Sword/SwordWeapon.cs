@@ -9,5 +9,5 @@ public class SwordWeapon : BaseWeapon
     {
         Instantiate(swordPrefab);
     }
-    public override void UpgradeInstance() {}
+    public override void Upgrade() {}
 }

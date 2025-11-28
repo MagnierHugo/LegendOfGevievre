@@ -458,6 +458,22 @@ PrefabInstance:
       propertyPath: xpOrbParent
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4434230788021744680, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434230788021744680, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: m_Size.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434230788021744680, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8599940909053559759, guid: 9ead36fccf3f4094eb8c8b3036b16ebf, type: 3}
+    - target: {fileID: 4434230788021744680, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4593646755622213846, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

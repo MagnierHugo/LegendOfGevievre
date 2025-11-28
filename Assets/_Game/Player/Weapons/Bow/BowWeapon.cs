@@ -12,5 +12,5 @@ public class BowWeapon : BaseWeapon
         ;
     }
 
-    public override void UpgradeInstance() {}
+    public override void Upgrade() {}
 }

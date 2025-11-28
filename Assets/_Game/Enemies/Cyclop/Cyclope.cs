@@ -20,13 +20,16 @@ public class Cyclope : BaseMonster
         }
     }
 
-    protected override void Move()
+    protected override Vector3 Move()
     {
         Vector3 vector = GameManager.PlayerTransform.position - transform.position;
         float magnitude = vector.magnitude;
+        Vector3 normalized = vector.normalized;
         if (magnitude <= distanceToPlayer - 1f)
             transform.position -= MoveSpeed * Time.deltaTime * vector.normalized;
         else if (magnitude > distanceToPlayer)
             transform.position += MoveSpeed * Time.deltaTime * vector.normalized;
+
+        return normalized;
     }
 }
