@@ -11,4 +11,9 @@ public abstract class BaseWeapon : ScriptableObject
         weaponLvl++;
         UpgradeImpl();
     }
+
+    public void ResetWeaponLevel()
+    {
+        weaponLvl = 1;
+    }
 }
