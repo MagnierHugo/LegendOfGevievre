@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: c2c2c4b2e40885442b33a6b497a50927
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - smallXpOrb: {fileID: 2253935087238467499, guid: efeee385d32489246b900ac1779e9613, type: 3}
+  - mediumXpOrb: {fileID: 4130174000466095868, guid: ceb7a06df1d6ef54085a52a9eaf13bb6, type: 3}
+  - largeXpOrb: {fileID: 621715295570744929, guid: 2f8bc92566a77a6469bcd226162bc90f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

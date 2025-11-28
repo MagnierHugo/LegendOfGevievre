@@ -14,6 +14,21 @@ TextureImporter:
   - first:
       213: -9180238556859105067
     second: BombExplosion_002_3
+  - first:
+      213: -5735003030903429263
+    second: BombExplosion_002_4
+  - first:
+      213: 4803694553911117211
+    second: BombExplosion_002_5
+  - first:
+      213: 6150748851576328046
+    second: BombExplosion_002_6
+  - first:
+      213: -8264266894343635709
+    second: BombExplosion_002_7
+  - first:
+      213: -3697216175413223344
+    second: BombExplosion_002_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,10 +140,10 @@ TextureImporter:
       name: BombExplosion_002_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 9
-        height: 12
+        x: 27
+        y: 47
+        width: 70
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +162,10 @@ TextureImporter:
       name: BombExplosion_002_1
       rect:
         serializedVersion: 2
-        x: 9
-        y: 7
-        width: 22
-        height: 25
+        x: 95
+        y: 83
+        width: 33
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +184,10 @@ TextureImporter:
       name: BombExplosion_002_2
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 11
-        height: 8
+        x: 0
+        y: 55
+        width: 13
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +206,10 @@ TextureImporter:
       name: BombExplosion_002_3
       rect:
         serializedVersion: 2
-        x: 20
-        y: 0
-        width: 8
-        height: 9
+        x: 23
+        y: 55
+        width: 14
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,6 +220,116 @@ TextureImporter:
       bones: []
       spriteID: 5d08119ebad399080800000000000000
       internalID: -9180238556859105067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombExplosion_002_4
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 39
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1776635f02d2960b0800000000000000
+      internalID: -5735003030903429263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombExplosion_002_5
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 27
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b95c957eeb62aa240800000000000000
+      internalID: 4803694553911117211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombExplosion_002_6
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 15
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6f49d01e79db5550800000000000000
+      internalID: 6150748851576328046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombExplosion_002_7
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 7
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d70a9ab0d6f4d80800000000000000
+      internalID: -8264266894343635709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BombExplosion_002_8
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 30
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 050aaa62a79d0bcc0800000000000000
+      internalID: -3697216175413223344
       vertices: []
       indices: 
       edges: []
@@ -227,6 +352,11 @@ TextureImporter:
       BombExplosion_002_1: -4322973082444136579
       BombExplosion_002_2: -7939687170027476775
       BombExplosion_002_3: -9180238556859105067
+      BombExplosion_002_4: -5735003030903429263
+      BombExplosion_002_5: 4803694553911117211
+      BombExplosion_002_6: 6150748851576328046
+      BombExplosion_002_7: -8264266894343635709
+      BombExplosion_002_8: -3697216175413223344
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

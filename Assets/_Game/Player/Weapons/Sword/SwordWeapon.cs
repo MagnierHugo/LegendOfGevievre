@@ -5,7 +5,7 @@ public class SwordWeapon : BaseWeapon
 {
     [SerializeField] private GameObject swordPrefab;
 
-    public override void CreateInstance() 
+    public override void Attack(GameObject gameObject) 
     {
         Instantiate(swordPrefab);
     }

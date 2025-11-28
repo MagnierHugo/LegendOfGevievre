@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eea43a87d461ef4084f217a8223c7ab, type: 3}
   m_Name: BowWeapon
   m_EditorClassIdentifier: 
-  bowPrefab: {fileID: 0}
+  arrowPrefab: {fileID: -7249110492780477506, guid: a466909a9d6c35242aed19db4aca3612, type: 3}
