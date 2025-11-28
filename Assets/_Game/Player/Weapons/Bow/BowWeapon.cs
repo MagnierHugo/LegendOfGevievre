@@ -11,6 +11,4 @@ public class BowWeapon : BaseWeapon
             .Init(gameObject.GetComponent<PlayerMovement>(), direction)
         ;
     }
-
-    public override void Upgrade() {}
 }

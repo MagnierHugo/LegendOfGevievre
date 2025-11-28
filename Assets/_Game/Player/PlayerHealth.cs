@@ -1,31 +1,38 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerHealth : MonoBehaviour
 {
-	public int MaxHealth = 100;
-	public int CurrentHealth { get; private set; }
+    [SerializeField] private UnityEngine.UI.Slider healthSlider;
 
-	private BoxCollider2D playerCollider;
+    [SerializeField] private int maxHealth = 100;
+	public int CurrentHealth { get; private set; }
 
 	public static event Action<int, int> OnHealthChanged;
 	public static event Action OnPlayerDied;
 
 	void Awake()
 	{
-		playerCollider = GetComponent<BoxCollider2D>();
-		CurrentHealth = MaxHealth;
+		CurrentHealth = maxHealth;
 	}
 
-	public void TakeDamage(int damageAmount)
+    public void UpdateHealthSlider(int currentHealth, int maxHealth)
+		=> healthSlider.value = (float)currentHealth / maxHealth;
+
+
+    public void TakeDamage(int damageAmount)
 	{
 		if (CurrentHealth <= 0)
 			return;
 
 		CurrentHealth -= damageAmount;
 
-		OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+        UpdateHealthSlider(CurrentHealth, maxHealth);
+
+        OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
 
 		Debug.Log($"Took {damageAmount} damage. HP remaining: {CurrentHealth}");
 
@@ -41,9 +48,10 @@ public class PlayerHealth : MonoBehaviour
 		if (CurrentHealth <= 0) return;
 
 		CurrentHealth += healAmount;
-		CurrentHealth = Mathf.Min(CurrentHealth, MaxHealth);
+		CurrentHealth = Mathf.Min(CurrentHealth, maxHealth);
 
-		OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
+        UpdateHealthSlider(CurrentHealth, maxHealth);
+        OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
 
 		Debug.Log($"Healed for {healAmount}. Current HP: {CurrentHealth}");
 	}
