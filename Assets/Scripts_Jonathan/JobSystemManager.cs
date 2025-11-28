@@ -25,7 +25,7 @@ public class JobSystemManager : MonoBehaviour
             nativePositions[i] = allEnemyTransforms[i].position;
     }
 
-    void Update()
+    private void Update()
     {
         playerPos = transform.position; // This script should be on the player
         float deltaTime = Time.deltaTime;
