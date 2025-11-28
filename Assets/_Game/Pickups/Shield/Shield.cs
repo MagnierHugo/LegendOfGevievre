@@ -6,6 +6,6 @@ public sealed class Shield : BasePickupable
 
     protected override void OnPickup(GameObject gameObject_)
     {
-        throw new System.NotImplementedException();
+        Debug.Log($"{nameof(Shield)}::{nameof(OnPickup)}");
     }
 }

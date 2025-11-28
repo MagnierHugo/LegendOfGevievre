@@ -78,8 +78,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -796155573255488767, guid: d9140b4bb49c9bf42bd69eea861a88df, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: -1328329982814723433, guid: b32179f5224758641b70fcccc7537129, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &-3194459230569174713
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.18}
+    oldSize: {x: 0.51, y: 0.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -182,6 +182,7 @@ MonoBehaviour:
   smallXpOrb: {fileID: 2253935087238467499, guid: efeee385d32489246b900ac1779e9613, type: 3}
   mediumXpOrb: {fileID: 4130174000466095868, guid: ceb7a06df1d6ef54085a52a9eaf13bb6, type: 3}
   largeXpOrb: {fileID: 621715295570744929, guid: 2f8bc92566a77a6469bcd226162bc90f, type: 3}
+  superXpOrb: {fileID: 0}
   healPotion: {fileID: 536600928649553450, guid: 4f26755b7fc4358428f3dcfa2b756c49, type: 3}
   shield: {fileID: 2585095668070486598, guid: a02570daa88a3fa4bb051dcf1bf949c5, type: 3}
   attackCooldown: 2
