@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 5418526454520336895}
   - component: {fileID: 5499552828099409279}
   - component: {fileID: -3194459230569174713}
-  - component: {fileID: -478293300535535248}
-  - component: {fileID: -5641387548028439773}
   - component: {fileID: -7938071534395864575}
+  - component: {fileID: -478293300535535248}
   m_Layer: 0
   m_Name: Cyclop
   m_TagString: Enemy
@@ -137,75 +136,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.51, y: 0.6}
   m_EdgeRadius: 0
---- !u!114 &-478293300535535248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2340880090251228723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d3aebe6b9193974a87f7621aa3038db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <HealthPoints>k__BackingField: 2
-  <AttackDamage>k__BackingField: 5
-  <MoveSpeed>k__BackingField: 1.5
-  immunityDuration: 0.3
-  smallXpOrb: {fileID: 2253935087238467499, guid: efeee385d32489246b900ac1779e9613, type: 3}
-  mediumXpOrb: {fileID: 4130174000466095868, guid: ceb7a06df1d6ef54085a52a9eaf13bb6, type: 3}
-  largeXpOrb: {fileID: 621715295570744929, guid: 2f8bc92566a77a6469bcd226162bc90f, type: 3}
-  attackCooldown: 2
-  projectilePrefab: {fileID: 55039970388698421, guid: 9f3bdfd7446649d4f81e9d80dc895735, type: 3}
-  distanceToPlayer: 7
-  maxShootingCooldown: 5
---- !u!61 &-5641387548028439773
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2340880090251228723}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!50 &-7938071534395864575
 Rigidbody2D:
   serializedVersion: 5
@@ -233,3 +163,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-478293300535535248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2340880090251228723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3aebe6b9193974a87f7621aa3038db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <HealthPoints>k__BackingField: 2
+  <AttackDamage>k__BackingField: 5
+  <MoveSpeed>k__BackingField: 1.5
+  immunityDuration: 0.3
+  smallXpOrb: {fileID: 2253935087238467499, guid: efeee385d32489246b900ac1779e9613, type: 3}
+  mediumXpOrb: {fileID: 4130174000466095868, guid: ceb7a06df1d6ef54085a52a9eaf13bb6, type: 3}
+  largeXpOrb: {fileID: 621715295570744929, guid: 2f8bc92566a77a6469bcd226162bc90f, type: 3}
+  attackCooldown: 2
+  projectilePrefab: {fileID: 55039970388698421, guid: 9f3bdfd7446649d4f81e9d80dc895735, type: 3}
+  distanceToPlayer: 7
+  maxShootingCooldown: 5
