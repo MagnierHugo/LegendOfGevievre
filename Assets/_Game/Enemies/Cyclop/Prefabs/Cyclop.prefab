@@ -87,7 +87,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &-3194459230569174713
@@ -182,7 +182,15 @@ MonoBehaviour:
   smallXpOrb: {fileID: 2253935087238467499, guid: efeee385d32489246b900ac1779e9613, type: 3}
   mediumXpOrb: {fileID: 4130174000466095868, guid: ceb7a06df1d6ef54085a52a9eaf13bb6, type: 3}
   largeXpOrb: {fileID: 621715295570744929, guid: 2f8bc92566a77a6469bcd226162bc90f, type: 3}
+  healPotion: {fileID: 536600928649553450, guid: 4f26755b7fc4358428f3dcfa2b756c49, type: 3}
+  shield: {fileID: 2585095668070486598, guid: a02570daa88a3fa4bb051dcf1bf949c5, type: 3}
   attackCooldown: 2
+  spriteRenderer: {fileID: 5499552828099409279}
+  sprites:
+  - {fileID: 3903735922045246820, guid: b12aef5f830400246a619ac5114ee9f4, type: 3}
+  - {fileID: 1464555588053369870, guid: d771daf453ce85a4db4d7bbb6888c5d6, type: 3}
+  - {fileID: -796155573255488767, guid: d9140b4bb49c9bf42bd69eea861a88df, type: 3}
+  - {fileID: 5181654206020448988, guid: c0847a64917730f45b28d8a5e27a3ba7, type: 3}
   projectilePrefab: {fileID: 55039970388698421, guid: 9f3bdfd7446649d4f81e9d80dc895735, type: 3}
   distanceToPlayer: 7
   maxShootingCooldown: 5
