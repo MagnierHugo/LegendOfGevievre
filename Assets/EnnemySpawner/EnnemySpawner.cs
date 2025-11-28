@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     private struct SpawnData
     {
         public GameObject prefab;
-        public float initialeSpawnDelay;
+        public float initialSpawnDelay;
     }
 
     [SerializeField] private List<SpawnData> spawnDataList = new List<SpawnData>();
@@ -45,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             SpawnData spawnData = spawnDataList[Random.Range(0, spawnDataList.Count)];
-            if (GameManager.TimePassed >= spawnData.initialeSpawnDelay)
+            if (GameManager.TimePassed >= spawnData.initialSpawnDelay)
                 return spawnData.prefab;
         }
     }

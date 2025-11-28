@@ -1,9 +1,6 @@
 using UnityEngine;
 
-public class BasePickable : MonoBehaviour
+public abstract class BasePickable : MonoBehaviour
 {
-    protected virtual int IsPickedUp()
-    {
-        return 0;
-    }
+    protected abstract bool IsPickedUp();
 }
