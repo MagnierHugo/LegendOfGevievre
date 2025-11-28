@@ -33,12 +33,9 @@ public class Arrow : MonoBehaviour
     
     private IEnumerator CycleStutterAndLive()
     {
-        while (true)
-        {
+        for ( ;isActive || !isActive; isActive = !isActive)
             yield return isActive ? liveDuration_ : stutterDuration_;
-            isActive = !isActive;
-            print("flipped");
-        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -48,6 +45,7 @@ public class Arrow : MonoBehaviour
 
         if (other.TryGetComponent<BaseMonster>(out var baseMonster))
             baseMonster.TakeDamage(damage);
+
     }
 
 }

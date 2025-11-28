@@ -7,7 +7,6 @@ public abstract class BasePickupable : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
-        print("OnTriggerEnter");
         OnPickup(other.gameObject);
     }
 }
