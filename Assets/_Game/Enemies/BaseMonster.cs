@@ -16,8 +16,36 @@ public class BaseMonster : MonoBehaviour
     [SerializeField] private GameObject mediumXpOrb = null;
     [SerializeField] private GameObject largeXpOrb = null;
 
-    public void Awake() => JobSystemManager.RegisterEnemy(transform);
-    private void OnDestroy() => JobSystemManager.UnregisterEnemy(transform);
+    [Header("Attack")]
+    [SerializeField] private float attackCooldown;
+    private bool inAttackRange = false;
+    private PlayerHealth playerHealth;
+    private float lastAttackTime;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.TryGetComponent<PlayerHealth>(out playerHealth))
+            inAttackRange = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.TryGetComponent<PlayerHealth>(out playerHealth))
+            inAttackRange = false;
+    }
+
+    private void FixedUpdate() => Move();
+    private void Update()
+    {
+        if (!inAttackRange)
+            return;
+
+        if (lastAttackTime + attackCooldown > Time.time)
+            return;
+
+        lastAttackTime = Time.time;
+        playerHealth.TakeDamage(AttackDamage);
+    }
 
     public void TakeDamage(int damage)
     {
@@ -25,7 +53,6 @@ public class BaseMonster : MonoBehaviour
             return;
         lastTimeTookDamage = Time.time;
 
-        print("Took damage");
         HealthPoints -= damage;
         if (HealthPoints <= 0)
             Die();
@@ -33,12 +60,23 @@ public class BaseMonster : MonoBehaviour
 
     private void Die()
     {
-        SpawnXpOrb(transform.position);
         OnDeath();
         Destroy(gameObject);
     }
 
-    protected virtual void OnDeath() { }
+    protected virtual void Move()
+    {
+        Vector3 vector = GameManager.PlayerTransform.position - transform.position;
+        if (vector.magnitude < 0.1f)
+            return;
+
+        transform.position += MoveSpeed * Time.deltaTime * vector.normalized;
+    }
+
+    protected virtual void OnDeath()
+    {
+        SpawnXpOrb(transform.position);
+    }
 
     public void SpawnXpOrb(Vector3 position)
     {

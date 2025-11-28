@@ -1,29 +1,34 @@
-using Unity.Burst;
-using Unity.Collections;
-using Unity.Jobs;
-using Unity.Mathematics;
-using UnityEngine;
+//using System;
+//using Unity.Burst;
+//using Unity.Collections;
+//using Unity.Jobs;
+//using Unity.Mathematics;
+//using UnityEngine;
 
-[BurstCompile]
-public struct MoveEnemyJob : IJobParallelFor
-{
-    [ReadOnly] public float deltaTime;
-    [ReadOnly] public float3 playerPosition;
-    [ReadOnly] public float speed;
+//[BurstCompile]
+//public struct MoveEnemyJob : IJobParallelFor
+//{
+//    [ReadOnly] public float deltaTime;
+//    [ReadOnly] public float3 playerPosition;
+//    [ReadOnly] public float speed;
+//    [ReadOnly] public Func<float3, float3, bool> shouldMove;
 
-    public NativeArray<float3> positions;
-    public NativeArray<float3> velocities;
+//    public NativeArray<float3> positions;
+//    public NativeArray<float3> velocities;
 
-    public void Execute(int index)
-    {
-        float3 currentPosition = positions[index];
+//    public void Execute(int index)
+//    {
+//        float3 currentPosition = positions[index];
 
-        float3 direction = playerPosition - currentPosition;
+//        if (!shouldMove(currentPosition, playerPosition))
+//            return;
 
-        float3 velocity = math.normalize(direction) * speed;
+//        float3 direction = playerPosition - currentPosition;
 
-        float3 newPosition = currentPosition + (velocity * deltaTime);
+//        float3 velocity = math.normalize(direction) * speed;
 
-        positions[index] = newPosition;
-    }
-}
+//        float3 newPosition = currentPosition + (velocity * deltaTime);
+
+//        positions[index] = newPosition;
+//    }
+//}

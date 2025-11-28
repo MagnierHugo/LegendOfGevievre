@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7756318810342849696}
   - component: {fileID: 6519296586255200820}
+  - component: {fileID: -11694455866286819}
   - component: {fileID: -2712048317772289910}
-  - component: {fileID: 1623431194840635538}
   m_Layer: 0
   m_Name: Werewolf
   m_TagString: Untagged
@@ -89,25 +89,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-2712048317772289910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2382559051595686469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad9585569881e9b4c9e2ad4d5556d486, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <HealthPoints>k__BackingField: 10
-  <AttackDamage>k__BackingField: 5
-  <MoveSpeed>k__BackingField: 2
-  smallXpOrb: {fileID: 2253935087238467499, guid: efeee385d32489246b900ac1779e9613, type: 3}
-  mediumXpOrb: {fileID: 4130174000466095868, guid: ceb7a06df1d6ef54085a52a9eaf13bb6, type: 3}
-  largeXpOrb: {fileID: 621715295570744929, guid: 2f8bc92566a77a6469bcd226162bc90f, type: 3}
---- !u!61 &1623431194840635538
+--- !u!61 &-11694455866286819
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,3 +135,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-2712048317772289910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2382559051595686469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9585569881e9b4c9e2ad4d5556d486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <HealthPoints>k__BackingField: 3
+  <AttackDamage>k__BackingField: 5
+  <MoveSpeed>k__BackingField: 2
+  immunityDuration: 0.3
+  smallXpOrb: {fileID: 2253935087238467499, guid: efeee385d32489246b900ac1779e9613, type: 3}
+  mediumXpOrb: {fileID: 4130174000466095868, guid: ceb7a06df1d6ef54085a52a9eaf13bb6, type: 3}
+  largeXpOrb: {fileID: 621715295570744929, guid: 2f8bc92566a77a6469bcd226162bc90f, type: 3}
+  attackCooldown: 2
