@@ -93,7 +93,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
 	{
 		Debug.Log("U ded cunt!");
-        SceneManager.LoadScene("UI_thomas");
+        SceneManager.LoadScene("GameOverMenu");
 
         OnPlayerDied?.Invoke();
 	}
