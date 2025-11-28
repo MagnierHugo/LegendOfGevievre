@@ -1,3 +1,4 @@
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "KnifeWeapon", menuName = "Scriptable Objects/Knife Weapon")]
@@ -8,8 +9,7 @@ public class KnifeWeapon : BaseWeapon
     [SerializeField] private int damage;
     public override void Attack(GameObject gameObject, Vector2 direction)
     {
-        Instantiate(preFab, gameObject.transform.position, Quaternion.LookRotation(direction)).Init(damage);
+        Instantiate(preFab, gameObject.transform.position, Quaternion.identity).Init(damage,direction);
     }
-    public override void UpgradeInstance() { }
-
+    public override void Upgrade() { }
 }

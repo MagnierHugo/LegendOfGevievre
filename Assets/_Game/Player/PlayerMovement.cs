@@ -32,6 +32,7 @@ public sealed class PlayerMovement : MonoBehaviour
         if (up ^ down)
             Velocity.y = up ? speed : -speed;
 
+
         transform.position += Time.deltaTime * Vector3.ClampMagnitude(Velocity, speed);
 
         if (Velocity.y > 0)

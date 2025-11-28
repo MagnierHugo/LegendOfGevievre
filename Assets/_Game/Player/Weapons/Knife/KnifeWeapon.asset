@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53456385062bd044c8fead6fc90a14e6, type: 3}
   m_Name: KnifeWeapon
   m_EditorClassIdentifier: 
-  preFab: {fileID: 0}
-  damage: 0
+  preFab: {fileID: 3026399670946971591, guid: 8accb712ab8f4d945a87aa4cfe4a4ece, type: 3}
+  damage: 1
