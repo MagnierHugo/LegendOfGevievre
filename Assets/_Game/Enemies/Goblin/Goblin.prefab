@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7886942495654747705}
   - component: {fileID: 5013434870093876852}
+  - component: {fileID: 3084974435197274396}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -87,3 +88,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3084974435197274396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309937958539672577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f850954a3e8a0df41a8cb772f8e4352e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <HealthPoints>k__BackingField: 10
+  <AttackDamage>k__BackingField: 5
+  <MoveSpeed>k__BackingField: 2

@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float vit = 2;
     public void SetDirection(Transform player)
     {
-        direction = player.position - transform.position;
+        direction = player?.position ?? Vector3.zero - transform.position;
     }
   
     // Update is called once per frame

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private Transform playerTransform;
+    public static Transform PlayerTransform => Instance.playerTransform;
 
     private float timeElapsed = 0f;
     public static float TimeElapsed => Instance.timeElapsed;
