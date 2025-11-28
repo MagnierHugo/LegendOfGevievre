@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 6519296586255200820}
   - component: {fileID: -11694455866286819}
   - component: {fileID: -2712048317772289910}
-  - component: {fileID: 8639558953322501575}
-  - component: {fileID: 3930359572553674695}
   m_Layer: 0
   m_Name: Werewolf
   m_TagString: Enemy
@@ -153,6 +151,7 @@ MonoBehaviour:
   <AttackDamage>k__BackingField: 5
   <MoveSpeed>k__BackingField: 2
   immunityDuration: 0.3
+  xpParent: {fileID: 6304811505945384608, guid: e29113b1dafad0c41b1b8a84a4bf77fe, type: 3}
   smallXpOrb: {fileID: 2253935087238467499, guid: efeee385d32489246b900ac1779e9613, type: 3}
   mediumXpOrb: {fileID: 4130174000466095868, guid: ceb7a06df1d6ef54085a52a9eaf13bb6, type: 3}
   largeXpOrb: {fileID: 621715295570744929, guid: 2f8bc92566a77a6469bcd226162bc90f, type: 3}

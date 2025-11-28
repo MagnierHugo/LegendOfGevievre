@@ -16,39 +16,43 @@ public class PlayerXP : MonoBehaviour
     [SerializeField] private PlayerAttack playerAttack;
 
     private int xpMax = 10;
+    private bool waitingForPowerSelection = false;
     public int CurrentXP { get; private set; }
 
     public static event Action<int> OnXPChanged;
 
-    private void FixedUpdate()
-    {
-        if (slider != null)
-            if (slider.value == 1)
-                LevelUp();
-    }
-
     public void EarnXP(int xpAmount)
     {
         CurrentXP += xpAmount;
-        CurrentXP = Mathf.Clamp(CurrentXP, 0, xpMax);
+        CheckLevelUp();
         SetXP(CurrentXP, xpMax);
 
         OnXPChanged?.Invoke(CurrentXP);
-
-        Debug.Log($"Earned {xpAmount} XP. Total XP: {CurrentXP}");
     }
 
     public void SetXP(int currentXP, int maxXP)
         => slider.value = (float)currentXP / maxXP;
 
-    private void LevelUp()
+    private void CheckLevelUp()
+    {
+        if (waitingForPowerSelection) return;
+
+        while (CurrentXP >= xpMax) // While loop allows multi-level XP bursts
+        {
+            CurrentXP -= xpMax;  // Keep leftover XP
+            xpMax += 10;         // Increase required XP
+
+            waitingForPowerSelection = true;
+            LevelUpUI();         // Handles UI + power selection
+            return;
+        }
+
+        SetXP(CurrentXP, xpMax);
+    }
+
+    private void LevelUpUI()
     {
         GameManager.Instance.TogglePause();
-
-        // Reset values
-        slider.value = 0;
-        CurrentXP = 0;
-        xpMax += 10;
 
         // Powers choice
         panelLevelUp.SetActive(true);
@@ -92,9 +96,6 @@ public class PlayerXP : MonoBehaviour
 
     public void SelectPowerUp(PowerUpData powerUpData)
     {
-        GameManager.Instance.TogglePause();
-        panelLevelUp.SetActive(false);
-
         if (playerAttack.weapons.Contains(powerUpData.powerUp))
         {
             powerUpData.CurrentLevel++;
@@ -102,5 +103,14 @@ public class PlayerXP : MonoBehaviour
         }
         else
             playerAttack.weapons.Add(powerUpData.powerUp);
+
+        panelLevelUp.SetActive(false);
+        GameManager.Instance.TogglePause();
+
+        waitingForPowerSelection = false;
+
+        CheckLevelUp();
+
+        SetXP(CurrentXP, xpMax);
     }
 }

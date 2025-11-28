@@ -6,15 +6,12 @@ using UnityEngine;
 public sealed class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private List<Sprite> playerSprite;
     public Vector2 Velocity;
 
-    private SpriteRenderer spriteRenderer;
     private Animator animator;
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
 
