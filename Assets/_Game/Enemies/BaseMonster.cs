@@ -30,4 +30,9 @@ public class BaseMonster : MonoBehaviour
     {
 
     }
+
+    public void TakeDamage(int damage)
+    {
+
+    }
 }

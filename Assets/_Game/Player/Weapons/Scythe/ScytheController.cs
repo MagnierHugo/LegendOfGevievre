@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ScytheController : MonoBehaviour
@@ -24,7 +25,7 @@ public class ScytheController : MonoBehaviour
     {
         if (scythePrefab == null) return;
 
-        GameObject scythe = Instantiate(scythePrefab, transform.position, Quaternion.identity);
+        GameObject scythe = Instantiate(scythePrefab, playerTransform.position, Quaternion.identity);
 
         scythe.transform.SetParent(transform);
     }
