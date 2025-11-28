@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private UnityEngine.UI.Slider healthSlider;
-    [SerializeField] private UnityEngine.UI.Slider shieldSlider;
+    //[SerializeField] private UnityEngine.UI.Slider shieldSlider;
 
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int maxShield = 100;
@@ -23,15 +23,18 @@ public class PlayerHealth : MonoBehaviour
 	{
 		CurrentHealth = maxHealth;
 		CurrentShield = maxShield;
-		shieldSlider.value = 1.0f;
+		//shieldSlider.value = 1.0f;
 		healthSlider.value = 1.0f;
     }
 
     public void UpdateHealthSlider(int currentHealth, int maxHealth)
-		=> healthSlider.value = (float)currentHealth / maxHealth;
+	{
+		healthSlider.value = (float)currentHealth / maxHealth;
+		print("oui");
+	}
 
-    public void UpdateShieldSlider(int currentShield, int maxShield)
-        => shieldSlider.value = (float)currentShield / maxShield;
+    //public void UpdateShieldSlider(int currentShield, int maxShield)
+    //    => shieldSlider.value = (float)currentShield / maxShield;
 
 
     public void TakeDamage(int damageAmount)
@@ -44,7 +47,7 @@ public class PlayerHealth : MonoBehaviour
 		if(CurrentShield > 0)
 		{
             CurrentShield -= damageAmount;
-			UpdateShieldSlider(CurrentShield, maxShield);
+			//UpdateShieldSlider(CurrentShield, maxShield);
 			OnShieldChanged?.Invoke(CurrentShield, maxShield);
             remains -= Mathf.Max(0, CurrentShield - damageAmount);
         }
@@ -84,7 +87,7 @@ public class PlayerHealth : MonoBehaviour
         CurrentShield += shieldAmount;
         CurrentShield = Mathf.Min(CurrentShield, maxShield);
 
-        UpdateShieldSlider(CurrentShield, maxShield);
+        //UpdateShieldSlider(CurrentShield, maxShield);
         OnShieldChanged?.Invoke(CurrentShield, maxShield);
 
         Debug.Log($"Added {shieldAmount} to current shield. Current Shield: {CurrentShield}");
@@ -92,8 +95,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
 	{
-		Debug.Log("U ded cunt!");
-        SceneManager.LoadScene("UI_thomas");
+        SceneManager.LoadScene("GameOverMenu");
 
         OnPlayerDied?.Invoke();
 	}
