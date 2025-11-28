@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 public class PickableManager : MonoBehaviour
 {
     [Header("Player")]
-    [SerializeField] Player player = null;
+    [SerializeField] PlayerController player = null;
 
     [Header("Xp Orbs")]
     [SerializeField] GameObject smallXpOrb = null;

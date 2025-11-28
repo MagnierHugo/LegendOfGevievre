@@ -6,7 +6,6 @@ public class MonsterManager : MonoBehaviour
     [SerializeField] private Transform player = null;
     [SerializeField] private List<BaseMonster> activeMonster = new List<BaseMonster>();
 
-
     private void Update()
     {
         Vector3 playerPos = player.position;
@@ -19,7 +18,7 @@ public class MonsterManager : MonoBehaviour
 
             if (direction.sqrMagnitude > 0.1f)
             {
-                enemy.transform.position += deltaTime * enemy.MoveSpeed * direction.normalized;
+                enemy.transform.position += deltaTime * enemy.GetMoveSpeed() * direction.normalized;
 
                 enemy.transform.up = direction;
             }
