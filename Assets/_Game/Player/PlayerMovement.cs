@@ -9,10 +9,20 @@ public sealed class PlayerMovement : MonoBehaviour
     public Vector2 Velocity;
 
     private Animator animator;
+    private Transform cameraTransform;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+
+        if (Camera.main != null)
+        {
+            cameraTransform = Camera.main.transform;
+        }
+        else
+        {
+            Debug.LogError("No Main Camera found!");
+        }
     }
 
     private void Update()
@@ -31,7 +41,19 @@ public sealed class PlayerMovement : MonoBehaviour
         // Clamp diagonal movement to keep speed consistent
         input = Vector2.ClampMagnitude(input, 1);
 
-        Velocity = input * speed;
+        Vector3 moveDir;
+        if (cameraTransform != null)
+        {
+            moveDir = (cameraTransform.right * input.x) + (cameraTransform.up * input.y);
+            moveDir.z = 0;
+            moveDir.Normalize();
+        }
+        else
+        {
+            moveDir = input;
+        }
+
+        Velocity = moveDir * speed;
         transform.position += (Vector3)Velocity * Time.deltaTime;
 
         // Movement animation direction priority
