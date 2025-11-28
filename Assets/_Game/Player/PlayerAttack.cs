@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public List<BaseWeapon> weapons;
-    private int currentWeaponIndex;
 
 
     private float attackTimer;
@@ -17,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
         attackTimer += Time.deltaTime;
         if (attackTimer > 1 / attackRate)
         {
+            Debug.Log("Weapon Count : " + weapons.Count);
             for (int i = 0;  i < weapons.Count; i++)
             {
                 weapons[i].Attack(gameObject, CalculateAttackDirection());
@@ -28,7 +28,6 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 CalculateAttackDirection()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        print(mousePos);
         return (mousePos - (Vector2)transform.position).normalized;
     }
 }

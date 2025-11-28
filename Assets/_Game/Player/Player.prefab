@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8593219257531226543}
   - component: {fileID: 2295156284372577453}
   - component: {fileID: 5094245988796285967}
+  - component: {fileID: 188699260192116827}
   - component: {fileID: 3378075698989456117}
   - component: {fileID: 1288276874032165771}
   m_Layer: 0
@@ -204,6 +205,13 @@ MonoBehaviour:
     Icon: {fileID: 21300000, guid: 149282875c2e80740ba72d090d8934e9, type: 3}
     MaxLevel: 3
     CurrentLevel: 1
+  - Name: Scythe
+    Description: "une faux qui fait slashhhhh. chaque enemy tu\xE9 par la faux drop
+      double xp"
+    powerUp: {fileID: 11400000, guid: e943c761cab31c648bf3fc94ec4bf3f1, type: 2}
+    Icon: {fileID: 3556737509140949877, guid: 0d56e533bd53d67428013bcd6350f40f, type: 3}
+    MaxLevel: 3
+    CurrentLevel: 1
   cards:
   - {fileID: 0}
   - {fileID: 0}
@@ -225,6 +233,9 @@ MonoBehaviour:
   speed: 5
   playerSprite:
   - {fileID: 1243182719892263300, guid: ba511cad2607c0b4f9db30ab9aa08e2d, type: 3}
+  - {fileID: 2511574795211095326, guid: f14f1cd4f77d71d4c9e5c1b01370e554, type: 3}
+  - {fileID: -3624963018517930303, guid: 9ead36fccf3f4094eb8c8b3036b16ebf, type: 3}
+  - {fileID: -4507236107445626916, guid: f08e6784f719df942a9e183cc3c39f13, type: 3}
   - {fileID: 0}
   - {fileID: -4507236107445626916, guid: f08e6784f719df942a9e183cc3c39f13, type: 3}
   - {fileID: 2511574795211095326, guid: f14f1cd4f77d71d4c9e5c1b01370e554, type: 3}
