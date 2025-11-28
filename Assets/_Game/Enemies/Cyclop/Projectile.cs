@@ -20,14 +20,15 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.otherCollider.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth))
+        if (other.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth))
         {
             playerHealth.TakeDamage(damage);
             Destroy(gameObject);
         }
     }
+
     public void SetDirection(Transform player)
     {
         direction = ((player?.position ?? Vector3.zero) - transform.position).normalized;
