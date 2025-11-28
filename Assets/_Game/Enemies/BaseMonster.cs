@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 
 using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
@@ -26,6 +26,10 @@ public class BaseMonster : MonoBehaviour
     private PlayerHealth playerHealth;
     private float lastAttackTime;
 
+    [Header("Sprite")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private List<Sprite> sprites;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent<PlayerHealth>(out playerHealth))
@@ -38,7 +42,11 @@ public class BaseMonster : MonoBehaviour
             inAttackRange = false;
     }
 
-    private void FixedUpdate() => Move();
+    private void FixedUpdate()
+    {
+        Rotate(Move());
+    }
+
     private void Update()
     {
         if (!inAttackRange)
@@ -68,13 +76,26 @@ public class BaseMonster : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected virtual void Move()
+    protected virtual Vector3 Move()
     {
         Vector3 vector = GameManager.PlayerTransform.position - transform.position;
         if (vector.magnitude < 0.1f)
+            return Vector3.zero;
+
+        Vector3 normalized = vector.normalized;
+        transform.position += MoveSpeed * Time.deltaTime * normalized;
+        return normalized;
+    }
+
+    private void Rotate(Vector3 direction)
+    {
+        if (Mathf.Abs(direction.x) <= .1f) 
             return;
 
-        transform.position += MoveSpeed * Time.deltaTime * vector.normalized;
+        if (direction.x < 0f)
+            spriteRenderer.sprite = sprites[0];
+        else
+            spriteRenderer.sprite = sprites[2];
     }
 
     protected virtual void OnDeath()

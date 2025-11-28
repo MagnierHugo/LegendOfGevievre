@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 759a002c4d7aed84c9295b88534663c3
+guid: 7689b315abb564848b7344da055d224e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9040198533575111752
-    second: Troll_Left_0
+      213: -7371509505491802261
+    second: 22_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Troll_Left_0
+      name: 22_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 1
-        width: 51
-        height: 60
+        x: 0
+        y: 7
+        width: 128
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 84470c45bac357d70800000000000000
-      internalID: 9040198533575111752
+      spriteID: b67eeb2292323b990800000000000000
+      internalID: -7371509505491802261
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Troll_Left_0: 9040198533575111752
+      22_0: -7371509505491802261
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
