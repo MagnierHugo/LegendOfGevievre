@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Cyclope : Monster
+public class Cyclope : BaseMonster
 {
     private Transform player;
     [SerializeField] private GameObject projectilePrefab;
