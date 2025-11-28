@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
         {
             for (int i = 0;  i < weapons.Count; i++)
             {
-                weapons[i].Attack(gameObject, CalculateAttackDirection(), weapons[i].upgradeLevel);
+                weapons[i].Attack(gameObject, CalculateAttackDirection());
             }
             attackTimer = 0;
         }
