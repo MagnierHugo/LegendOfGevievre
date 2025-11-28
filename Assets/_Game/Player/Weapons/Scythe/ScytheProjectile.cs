@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class ScytheProjectile : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float rotationSpeed = 360f;
     [SerializeField] private float lifetime = 0.5f;
 
