@@ -36,7 +36,9 @@ public class ScytheProjectile : MonoBehaviour
 
     public void Init(Vector2 direction)
     {
-        //rb.linearVelocity = direction.normalized * moveSpeed;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+        rb.linearVelocity = Vector2.zero;
     }
 
     private void Update()

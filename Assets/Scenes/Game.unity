@@ -2977,6 +2977,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2135615451}
     - target: {fileID: 2254437429885837548, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+<<<<<<< HEAD
+=======
       propertyPath: levelCards.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -3006,6 +3008,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2254437429885837548, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+>>>>>>> b5052247472663c815f22e5224bee838259f62e8
       propertyPath: allPowerUps.Array.data[3].CurrentLevel
       value: 0
       objectReference: {fileID: 0}

@@ -102,7 +102,10 @@ public class PlayerXP : MonoBehaviour
         if (playerAttack.weapons.Contains(powerUpData.powerUp))
             powerUpData.powerUp.Upgrade();
         else
+        {
+            powerUpData.powerUp.upgradeLevel = 0;
             playerAttack.weapons.Add(powerUpData.powerUp);
+        }
 
         powerUpData.CurrentLevel++;
 

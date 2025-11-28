@@ -21,6 +21,7 @@ public class BaseMonster : MonoBehaviour
     [Header("Pickable Prefab")]
     [SerializeField] private GameObject healPotion = null;
     [SerializeField] private GameObject shield = null;
+    [SerializeField] private GameObject magnet = null;
 
     [Header("Attack")]
     [SerializeField] private float attackCooldown;
@@ -66,7 +67,7 @@ public class BaseMonster : MonoBehaviour
         if (lastTimeTookDamage + immunityDuration > Time.time)
             return;
         lastTimeTookDamage = Time.time;
-
+ 
         HealthPoints -= damage;
         if (HealthPoints <= 0)
         {
@@ -79,7 +80,6 @@ public class BaseMonster : MonoBehaviour
             Die();
         }
     }
-
 
     protected virtual Vector3 Move()
     {
@@ -123,6 +123,8 @@ public class BaseMonster : MonoBehaviour
             SpawnHeal(transform.position + offset); // Offset so it doesn't spawn on the xp orbs
         else if (random <= 0.1f)
             SpawnShield(transform.position + offset);
+        else if (random <= 0.2f)
+            SpawnMagnet(transform.position + offset);
     }
 
     private void SpawnXpOrb(Vector3 position)
@@ -151,5 +153,9 @@ public class BaseMonster : MonoBehaviour
     private void SpawnShield(Vector3 position)
     {
         Instantiate(shield, position, Quaternion.identity);
+    }
+    private void SpawnMagnet(Vector3 position)
+    {
+        Instantiate(magnet, position, Quaternion.identity);
     }
 }

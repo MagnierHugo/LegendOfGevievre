@@ -6,7 +6,7 @@ public class BombWeapon : BaseWeapon
     [SerializeField] private GameObject bombPrefab;
     [SerializeField] private int bombCount = 1;
 
-    public override void Attack(GameObject gameObject, Vector2 direction) 
+    public override void Attack(GameObject gameObject, Vector2 direction, int upgradeLevel) 
     {
         for (int i = 0; i < bombCount; i++)
         {
