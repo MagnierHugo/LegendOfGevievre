@@ -27,7 +27,7 @@ public static class JobSystemManager
         playerPos = playerTransform.position;
         float deltaTime = Time.deltaTime;
 
-        var moveJob = new MoveEnemyJob
+        var moveJob = new MoveEnemyJob()
         {
             deltaTime = deltaTime,
             playerPosition = playerPos,
@@ -41,15 +41,15 @@ public static class JobSystemManager
         handle.Complete();
 
         for (int i = 0; i < allEnemyTransforms.Count; i++)
-        {
             allEnemyTransforms[i].position = positions[i];
-        }
     }
 
     public static void DestroyLists()
     {
-        if (positions.IsCreated) positions.Dispose();
-        if (velocities.IsCreated) velocities.Dispose();
+        if (positions.IsCreated)
+            positions.Dispose();
+        if (velocities.IsCreated)
+            velocities.Dispose();
     }
 
     public static void RegisterEnemy(Transform enemyTransform)
