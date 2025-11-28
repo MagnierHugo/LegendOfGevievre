@@ -1,5 +1,13 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "BowWeapon", menuName = "Scriptable Objects/Bow Weapon")]
 public class BowWeapon : BaseWeapon
 {
-    public override void CreateInstance() {}
+    [SerializeField] private GameObject bowPrefab;
+
+    public override void CreateInstance() 
+    {
+        Instantiate(bowPrefab);
+    }
     public override void UpgradeInstance() {}
 }

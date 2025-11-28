@@ -1,13 +1,13 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AreaWeapon", menuName = "Scriptable Objects/Area Weapon")]
+[CreateAssetMenu(fileName = "SwordWeapon", menuName = "Scriptable Objects/Sword Weapon")]
 public class SwordWeapon : BaseWeapon
 {
-    [SerializeField] private GameObject areaPrefab;
+    [SerializeField] private GameObject swordPrefab;
 
     public override void CreateInstance() 
     {
-        GameObject.Instantiate(areaPrefab);
+        Instantiate(swordPrefab);
     }
     public override void UpgradeInstance() {}
 }

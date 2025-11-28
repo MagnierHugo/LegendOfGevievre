@@ -2,52 +2,54 @@ using UnityEngine;
 
 public class BombWeaponInstance : MonoBehaviour
 {
-    [SerializeField] private GameObject projectile = null;
-
-    [SerializeField] private Vector3 playerPosition = new Vector3(0.0f, 0.0f, 0.0f);
-    private Vector3 startingPosition = new Vector3(0.0f, 0.0f, 0.0f);
+    private Vector3 startingPosition = Vector3.zero;
     private Vector2 explosionPosition = Vector2.zero;
 
-    [SerializeField] private float jumpIntensity = 2.0f;
-    private const float SHOOTS_ELAPSED_TIME = 1.0f;
+    private const float SHOOTS_ELAPSED_TIME = 2.0f;
     private const float GRAVITY = 9.81f;
+    private float jumpIntensity = 8.0f;
+    private float projectileSpeed = 4.0f;
     private float timer = SHOOTS_ELAPSED_TIME;
-    private float projectileSpeed = 5.0f;
 
     private static int range = 20;
     private static int damage = 50;
 
     private bool isAlive = false;
-    
-    public BombWeaponInstance() {}
+
+    GameObject explosion;
 
     public void Start()
     {
-        Instantiate(projectile, startingPosition, Quaternion.identity);
-        startingPosition = playerPosition;
-        isAlive = true;
+        InitInstance();
     }
 
     public void Update()
     {
-        Attack();
+        ParabollicMovement();
     }
 
-    public void Attack()
+    public void InitInstance()
+    {
+        isAlive = true;
+        explosion = GameObject.Find("Explosion");
+        explosion.SetActive(false);
+    }
+
+    public void ParabollicMovement()
     {
         timer -= Time.deltaTime;
         if (timer < 0)
         {
-            // Explodes in a random spot
-            explosionPosition = new Vector2(Random.Range(0, 100), Random.Range(0, 100));
             if (isAlive)
             {
-                projectile.transform.position += new Vector3(projectileSpeed * Time.deltaTime, jumpIntensity * Time.deltaTime, 0);
+                transform.position += new Vector3(projectileSpeed * Time.deltaTime, jumpIntensity * Time.deltaTime, 0);
                 jumpIntensity -= Time.deltaTime * GRAVITY;
-                if (projectile.transform.position.y <= startingPosition.y)
+                if (transform.position.y <= startingPosition.y)
                 {
-                    Explode(explosionPosition);
-                    Destroy(projectile);
+                    explosion?.SetActive(true);
+                    explosionPosition = new Vector2(Random.Range(0, 10), Random.Range(0, 10));
+                    Explode();
+                    Destroy(gameObject);
                     isAlive = false;
                     timer = SHOOTS_ELAPSED_TIME;
                 }
@@ -61,8 +63,10 @@ public class BombWeaponInstance : MonoBehaviour
         range += 5;
     }
 
-    private void Explode(Vector2 position)
+    private void Explode()
     {
-        Debug.Log("Explosion at " + position.ToString() + ", it's a decoy :D 1!!!!1!1!1!1!!");
+        // TODO: Explosion visual
+        Debug.Log("Explosion at " + explosionPosition.ToString() + ", it's a decoy :D 1!!!!1!1!1!1!!");
+        Debug.Log("The real me is at : " + transform.position.ToString() + " !!111!1!1!1!!1!1");
     }
 }

@@ -4,25 +4,21 @@ public class SwordWeaponInstance : MonoBehaviour
 {
     public void Start()
     {
-        
+        InitSword();
+        Spawn();
     }
 
     public void Update()
     {
-        
+        SpinAroundEnemy();
     }
 
-    SwordWeaponInstance()
-    {
-        InitArea();
-    }
-
-    public void InitArea()
+    public void InitSword()
     {
 
     }
 
-    public void Attack()
+    public void Spawn()
     {
 
     }
@@ -32,8 +28,7 @@ public class SwordWeaponInstance : MonoBehaviour
 
     }
 
-    // Special ability
-    public void GrowsAndShrinks()
+    public void SpinAroundEnemy()
     {
 
     }

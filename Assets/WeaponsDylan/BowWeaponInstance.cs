@@ -17,11 +17,6 @@ public class BowWeaponInstance : MonoBehaviour
 
     private bool isAlive = false;
 
-    public BowWeaponInstance()
-    {
-
-    }
-
     public void Start()
     {
         InitArrow();
@@ -38,7 +33,7 @@ public class BowWeaponInstance : MonoBehaviour
     public void InitArrow()
     {
         startingPosition = playerPosition;
-        Instantiate(arrow, startingPosition, Quaternion.identity);
+        arrow = GetComponent<GameObject>();
         attackDirection = new Vector2(playerPosition.normalized.x, playerPosition.normalized.y);
         isAlive = true;
     }
