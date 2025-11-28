@@ -2,10 +2,14 @@ using UnityEngine;
 
 public sealed class Shield : BasePickupable
 {
-    [SerializeField] public int ShieldValue { get; private set; }
+    [field: SerializeField] public int ShieldValue { get; private set; }
 
-    protected override void OnPickup(GameObject gameObject_)
+    protected sealed override void OnPickup(GameObject gameObject_)
     {
-        Debug.Log($"{nameof(Shield)}::{nameof(OnPickup)}");
+        if (gameObject_.TryGetComponent<PlayerHealth>(out var playerHealth))
+        {
+            playerHealth.ApplyShield(ShieldValue);
+            Destroy(gameObject);
+        }
     }
 }

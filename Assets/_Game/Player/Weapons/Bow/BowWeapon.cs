@@ -6,7 +6,7 @@ public class BowWeapon : BaseWeapon
 {
     [SerializeField] private Arrow arrowPrefab;
 
-    private int numberOfArrowForChain = 10;
+    private int numberOfArrowForChain = 50;
 
     public override void Attack(GameObject gameObject, Vector2 direction) 
     {
