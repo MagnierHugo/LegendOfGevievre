@@ -116,10 +116,10 @@ TextureImporter:
       name: bombPschhh_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 23
-        width: 102
-        height: 98
+        x: 5
+        y: 2
+        width: 26
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
