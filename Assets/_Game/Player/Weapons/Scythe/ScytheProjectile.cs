@@ -48,21 +48,12 @@ public class ScytheProjectile : MonoBehaviour
         transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
     }
 
-    private void FixedUpdate()
-    {
-    }
-
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!hitEnemies.Contains(other.gameObject))
+        if (other.TryGetComponent(out BaseMonster enemy))
         {
-            hitEnemies.Add(other.gameObject);
-
-            if (other.TryGetComponent(out BaseMonster enemy))
-            {
-                enemy.TakeDamage(damage);
-            }
+            enemy.TakeDamage(damage);
         }
     }
 }
