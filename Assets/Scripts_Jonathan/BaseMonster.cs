@@ -6,6 +6,16 @@ public class BaseMonster : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float damage = 10f;
 
+    public void Awake()
+    {
+        JobSystemManager.RegisterEnemy(monsterTransform);
+    }
+
+    private void OnDestroy()
+    {
+        JobSystemManager.UnregisterEnemy(monsterTransform);
+    }
+
     public float GetMoveSpeed()
     {
         return moveSpeed;

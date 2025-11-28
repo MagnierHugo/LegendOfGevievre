@@ -48,5 +48,6 @@ public class EnemySpawner : MonoBehaviour
             if (GameManager.TimePassed >= spawnData.initialeSpawnDelay)
                 return spawnData.prefab;
         }
+
     }
 }

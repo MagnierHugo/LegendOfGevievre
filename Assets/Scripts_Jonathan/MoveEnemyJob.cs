@@ -25,6 +25,5 @@ public struct MoveEnemyJob : IJobParallelFor
         float3 newPosition = currentPosition + (velocity * deltaTime);
 
         positions[index] = newPosition;
-        velocities[index] = velocity;
     }
 }

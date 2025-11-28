@@ -6,7 +6,6 @@ public class MonsterManager : MonoBehaviour
     [SerializeField] private Transform player = null;
     [SerializeField] private List<BaseMonster> activeMonster = new List<BaseMonster>();
 
-
     private void Update()
     {
         Vector3 playerPos = player.position;
