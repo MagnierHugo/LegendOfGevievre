@@ -9,7 +9,7 @@ public class LevelUpManager : MonoBehaviour
 {
     [Header("Dependencies")]
     [SerializeField] private GameObject xpBubble;
-    [SerializeField] private GameObject xpList;
+    [SerializeField] private GameObject xpParent;
 
     [Header("LevelUp Choices")]
     [SerializeField] private GameObject panelLevelUp;
@@ -33,7 +33,7 @@ public class LevelUpManager : MonoBehaviour
                 Random.Range(-generateRange, generateRange)
             );
 
-            Instantiate(xpBubble, randomPos, Quaternion.identity, xpList.transform);
+            Instantiate(xpBubble, randomPos, Quaternion.identity, xpParent.transform);
         }
     }
 
