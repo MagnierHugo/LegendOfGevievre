@@ -40,22 +40,29 @@ public class PlayerHealth : MonoBehaviour
 			return;
 
 		// Transfer remaining damage to health
-		int remains = damageAmount;
-		if(CurrentShield > 0)
+		if (CurrentShield > 0)
 		{
             CurrentShield -= damageAmount;
-			UpdateShieldSlider(CurrentShield, maxShield);
+			if (CurrentShield < 0)
+			{
+				damageAmount = -CurrentShield;
+				CurrentShield = 0;
+			}
+			else
+			{
+				damageAmount = 0;
+			}
+				UpdateShieldSlider(CurrentShield, maxShield);
 			OnShieldChanged?.Invoke(CurrentShield, maxShield);
-            remains -= Mathf.Max(0, CurrentShield - damageAmount);
         }
 
-		CurrentHealth -= remains;
+		CurrentHealth -= damageAmount;
 
         UpdateHealthSlider(CurrentHealth, maxHealth);
 
         OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
 
-		Debug.Log($"Took {remains} damage. HP remaining: {CurrentHealth}");
+		Debug.Log($"Took {damageAmount} damage. HP remaining: {CurrentHealth}");
 
 		if (CurrentHealth <= 0)
 		{
@@ -66,7 +73,8 @@ public class PlayerHealth : MonoBehaviour
 
 	public void Heal(int healAmount)
 	{
-		if (CurrentHealth <= 0) return;
+		if (CurrentHealth >= 100)
+			return;
 
 		CurrentHealth += healAmount;
 		CurrentHealth = Mathf.Min(CurrentHealth, maxHealth);
@@ -77,9 +85,10 @@ public class PlayerHealth : MonoBehaviour
 		Debug.Log($"Healed for {healAmount}. Current HP: {CurrentHealth}");
 	}
 
-    public void Shield(int shieldAmount)
+    public void ApplyShield(int shieldAmount)
     {
-        if (CurrentShield <= 0) return;
+        if (CurrentShield >= 100)
+			return;
 
         CurrentShield += shieldAmount;
         CurrentShield = Mathf.Min(CurrentShield, maxShield);

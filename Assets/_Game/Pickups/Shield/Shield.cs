@@ -8,7 +8,7 @@ public sealed class Shield : BasePickupable
     {
         if (gameObject_.TryGetComponent<PlayerHealth>(out var playerHealth))
         {
-            playerHealth.Shield(ShieldValue);
+            playerHealth.ApplyShield(ShieldValue);
             Destroy(gameObject);
         }
     }
