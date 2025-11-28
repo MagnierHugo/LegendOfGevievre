@@ -9,10 +9,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - player
   - Water
   - UI
-  - 
+  - floor
   - 
   - 
   - 
@@ -44,3 +44,5 @@ TagManager:
     locked: 0
   m_RenderingLayers:
   - Default
+  - player
+  - map
