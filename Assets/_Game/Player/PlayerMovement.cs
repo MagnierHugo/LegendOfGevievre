@@ -33,7 +33,7 @@ public sealed class PlayerMovement : MonoBehaviour
 
         Velocity = input * speed;
         transform.position += (Vector3)Velocity * Time.deltaTime;
-
+        
         // Movement animation direction priority
         if (input.x != 0)
         {
