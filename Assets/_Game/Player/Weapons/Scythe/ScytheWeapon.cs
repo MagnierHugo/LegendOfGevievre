@@ -7,17 +7,17 @@ public class ScytheWeapon : BaseWeapon
 {
     [SerializeField] private GameObject scythePrefab;
 
-    public override void Attack(GameObject gameObject, Vector2 direction, int upgradeLevel)
+    public override void Attack(GameObject gameObject, Vector2 direction)
     {
-        switch (upgradeLevel)
+        switch (weaponLvl)
         {
-            case 0:
+            case 1:
                 Instantiate(scythePrefab, gameObject.transform.position, Quaternion.identity, gameObject.transform)
                     .GetComponent<ScytheProjectile>()
                     .Init(direction);
                 break;
 
-            case 1:
+            case 2:
                 Instantiate(scythePrefab, gameObject.transform.position, Quaternion.identity, gameObject.transform)
                     .GetComponent<ScytheProjectile>()
                     .Init(direction);
@@ -27,7 +27,7 @@ public class ScytheWeapon : BaseWeapon
                     .Init(-direction);
                 break;
 
-            case >= 2:
+            case >= 3:
                 GameObject scythe = Instantiate(scythePrefab, gameObject.transform.position, Quaternion.identity, gameObject.transform);
                 scythe.GetComponent<ScytheProjectile>().Init(direction);
                 scythe.transform.localScale = new Vector3(2f, 2f, 1f);
@@ -40,10 +40,5 @@ public class ScytheWeapon : BaseWeapon
             default:
                 break;
         }
-    }
-    public override void Upgrade()
-    {
-        base.Upgrade();
-        upgradeLevel += 1;
     }
 }
