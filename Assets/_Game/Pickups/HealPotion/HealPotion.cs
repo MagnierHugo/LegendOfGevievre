@@ -6,7 +6,10 @@ public sealed class HealPotion : BasePickupable
 
     protected sealed override void OnPickup(GameObject gameObject_)
     {
-        if (gameObject.TryGetComponent<PlayerHealth>(out var playerHealth))
+        if (gameObject_.TryGetComponent<PlayerHealth>(out var playerHealth))
+        {
             playerHealth.Heal(HealValue);
+            Destroy(gameObject);
+        }
     }
 }

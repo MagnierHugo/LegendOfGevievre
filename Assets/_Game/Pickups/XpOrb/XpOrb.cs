@@ -6,7 +6,10 @@ public sealed class XpOrb : BasePickupable
 
     protected sealed override void OnPickup(GameObject gameObject_)
     {
-        if (gameObject.TryGetComponent<PlayerXP>(out var playerXP))
+        if (gameObject_.TryGetComponent<PlayerXP>(out var playerXP))
+        {
             playerXP.EarnXP(XpValue);
+            Destroy(gameObject);
+        }
     }
 }

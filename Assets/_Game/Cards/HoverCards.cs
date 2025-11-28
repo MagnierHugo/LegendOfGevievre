@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,15 +16,18 @@ public class HoverCards : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] private GameObject panel;
     [SerializeField] private TextMeshProUGUI text;
 
-    public void Init(PowerUpData data)
+    private event Action<PowerUpData> onPowerUpSelected;
+
+    public void Init(PowerUpData data, Action<PowerUpData> onPowerUpSelected)
     {
         linkedData = data;
+        this.onPowerUpSelected = onPowerUpSelected;
     }
 
     private void Start()
     {
         baseScale = transform.localScale;
-        hoverScale = new(baseScale.x + 0.5f, baseScale.y + 0.5f, 1f);
+        hoverScale = new(baseScale.x + 0.2f, baseScale.y + 0.2f, 1f);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -38,17 +42,18 @@ public class HoverCards : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         HideDescription();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        FindFirstObjectByType<LevelUpManager>().SelectPowerUp();
-    }
-
-    public void ShowDescription(string description)
+    private void ShowDescription(string description)
     {
         panel.SetActive(true);
         text.text = description;
     }
 
-    public void HideDescription()
+    private void HideDescription()
         => panel.SetActive(false);
+
+    public void TriggerOnPowerUpData()
+    {
+        HideDescription();
+        onPowerUpSelected?.Invoke(linkedData);
+    }
 }

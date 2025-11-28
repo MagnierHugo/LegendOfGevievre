@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &957220093
+--- !u!1 &412922911
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,34 +127,70 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 957220094}
+  - component: {fileID: 412922912}
+  - component: {fileID: 412922913}
   m_Layer: 0
-  m_Name: XpParent
+  m_Name: Scythe Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &957220094
+--- !u!4 &412922912
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 957220093}
+  m_GameObject: {fileID: 412922911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.57388, y: -2.8367, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1686432552}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &412922913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412922911}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d0daaa1a8909645b98ea4e2cfee2c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scythePrefab: {fileID: 163277344040567807, guid: 385ce2645a84b024eadcf5d3aef13299, type: 3}
+  cooldown: 1.5
+  playerTransform: {fileID: 1686432552}
 --- !u!4 &1686432552 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4593646755622213846, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
   m_PrefabInstance: {fileID: 7345030038890145485}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1839413455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8611942290779122933, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+  m_PrefabInstance: {fileID: 7345030038890145485}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1839413456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839413455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a517a2e51bc9e34fbda28ad6391db88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 11400000, guid: e4d17420106f2d640ac30ffc9b888322, type: 2}
+  attackRate: 1
 --- !u!1 &2037314870
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +457,7 @@ PrefabInstance:
     - target: {fileID: 2295156284372577453, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
       propertyPath: xpOrbParent
       value: 
-      objectReference: {fileID: 957220094}
+      objectReference: {fileID: 0}
     - target: {fileID: 4593646755622213846, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -468,8 +504,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4593646755622213846, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 412922912}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8611942290779122933, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1839413456}
   m_SourcePrefab: {fileID: 100100000, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -477,6 +519,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 2037314873}
   - {fileID: 7345030038890145485}
-  - {fileID: 957220094}
   - {fileID: 345904853793680182}
   - {fileID: 1958831326486344850}

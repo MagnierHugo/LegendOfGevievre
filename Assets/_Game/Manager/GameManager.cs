@@ -7,9 +7,13 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private Transform playerTransform;
+    public static Transform PlayerTransform => Instance.playerTransform;
 
     private float timeElapsed = 0f;
     public static float TimeElapsed => Instance.timeElapsed;
+
+    public static bool GamePaused { get; private set; }
+
 
     private void Awake()
     {
@@ -23,12 +27,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start() => JobSystemManager.Init();
+    private void Update() => timeElapsed += Time.deltaTime;
 
-    private void Update()
+    public void TogglePause()
     {
-        timeElapsed += Time.deltaTime;
-
-        JobSystemManager.MoveEnemies(playerTransform);
+        GamePaused = !GamePaused;
+        Time.timeScale = GamePaused ? 0f : 1f;
     }
 }

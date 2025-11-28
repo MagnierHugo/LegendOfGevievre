@@ -3,11 +3,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BowWeapon", menuName = "Scriptable Objects/Bow Weapon")]
 public class BowWeapon : BaseWeapon
 {
-    [SerializeField] private GameObject bowPrefab;
+    [SerializeField] private Arrow arrowPrefab;
 
-    public override void CreateInstance() 
+    public override void Attack(GameObject gameObject, Vector2 direction) 
     {
-        Instantiate(bowPrefab);
+        Instantiate(arrowPrefab, gameObject.transform.position, Quaternion.identity)
+            .Init(gameObject.GetComponent<PlayerMovement>(), direction)
+        ;
     }
-    public override void UpgradeInstance() {}
+
+    public override void Upgrade() {}
 }
