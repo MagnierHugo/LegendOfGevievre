@@ -44,7 +44,7 @@ public class BaseMonster : MonoBehaviour
             return;
 
         lastAttackTime = Time.time;
-        playerHealth.TakeDamage(AttackDamage);
+        playerHealth?.TakeDamage(AttackDamage);
     }
 
     public void TakeDamage(int damage)

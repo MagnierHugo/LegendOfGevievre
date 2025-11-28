@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     private float timeElapsed = 0f;
     public static float TimeElapsed => Instance.timeElapsed;
 
+    public static bool GamePaused { get; private set; }
+
+
     private void Awake()
     {
         if (Instance != null)
@@ -25,4 +28,10 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update() => timeElapsed += Time.deltaTime;
+
+    public void TogglePause()
+    {
+        GamePaused = !GamePaused;
+        Time.timeScale = GamePaused ? 0f : 1f;
+    }
 }

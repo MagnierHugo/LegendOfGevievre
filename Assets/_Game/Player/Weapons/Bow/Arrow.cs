@@ -13,12 +13,9 @@ public class Arrow : MonoBehaviour
     [SerializeField] private int damage;
     private Vector3 velocity;
     private bool isActive = true;
-    public void Init(PlayerMovement playerMovement)
+    public void Init(PlayerMovement playerMovement, Vector2 direction)
     {
-        velocity = playerMovement.Velocity == Vector2.zero ?
-            Vector3.right * speed :
-            playerMovement.Velocity.normalized * speed
-        ;
+        velocity = direction * speed;
         stutterDuration_ = new WaitForSeconds(stutterDuration);
         liveDuration_ = new WaitForSeconds(liveDuration);
         Destroy(gameObject, lifeTime);
