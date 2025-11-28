@@ -11,7 +11,7 @@ public class PickableManager : MonoBehaviour
     [SerializeField] GameObject mediumXpOrb = null;
     [SerializeField] GameObject largeXpOrb = null;
 
-    [Header("Pickable Prefab")]
+    [Header("Pickable Prefabs")]
     [SerializeField] GameObject healPotion = null;
     [SerializeField] GameObject shield = null;
 

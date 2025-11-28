@@ -43,7 +43,10 @@ public sealed class KillAura : MonoBehaviour
         }
         else
         {
-            currentSize += sizeShiftSpeed * Time.deltaTime;
+            if (currentSize < 8)
+                currentSize += sizeShiftSpeed * Time.deltaTime;
+            else
+                gameObject.SetActive(false);
         }
 
         maskTransform.localScale = currentSize * Vector3.one ;

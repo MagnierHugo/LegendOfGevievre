@@ -1,8 +1,18 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public sealed class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private List<Sprite> playerSprite;
+
+    private SpriteRenderer spriteRenderer;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private void Update()
     {
@@ -21,5 +31,15 @@ public sealed class PlayerMovement : MonoBehaviour
             velocity.y = up ? speed : -speed;
 
         transform.position += Time.deltaTime * Vector3.ClampMagnitude(velocity, speed);
+
+        if (velocity.y > 0)
+            spriteRenderer.sprite = playerSprite[0];
+        if (velocity.x > 0)
+            spriteRenderer.sprite = playerSprite[1];
+        if (velocity.y < 0)
+            spriteRenderer.sprite = playerSprite[2];
+        if (velocity.x < 0)
+            spriteRenderer.sprite = playerSprite[3];
+
     }
 }

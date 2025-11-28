@@ -748,7 +748,6 @@ GameObject:
   - component: {fileID: 530338511}
   - component: {fileID: 530338513}
   - component: {fileID: 530338512}
-  - component: {fileID: 530338514}
   m_Layer: 5
   m_Name: Tooltip
   m_TagString: Untagged
@@ -875,20 +874,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530338510}
   m_CullTransparentMesh: 1
---- !u!114 &530338514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530338510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3cf8cd2bc5f98d459f9d73120e4bd07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 1301604524}
-  text: {fileID: 530338512}
 --- !u!1 &655579280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,7 +1049,6 @@ GameObject:
   - component: {fileID: 669222250}
   - component: {fileID: 669222253}
   - component: {fileID: 669222252}
-  - component: {fileID: 669222251}
   m_Layer: 5
   m_Name: Tooltip
   m_TagString: Untagged
@@ -1091,20 +1075,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 342, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &669222251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 669222249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3cf8cd2bc5f98d459f9d73120e4bd07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 525474821}
-  text: {fileID: 669222252}
 --- !u!114 &669222252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1215,7 +1185,6 @@ GameObject:
   - component: {fileID: 705398543}
   - component: {fileID: 705398546}
   - component: {fileID: 705398545}
-  - component: {fileID: 705398544}
   m_Layer: 5
   m_Name: Tooltip
   m_TagString: Untagged
@@ -1242,20 +1211,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.0000026226}
   m_SizeDelta: {x: 342, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &705398544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705398542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3cf8cd2bc5f98d459f9d73120e4bd07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 1986524100}
-  text: {fileID: 705398545}
 --- !u!114 &705398545
 MonoBehaviour:
   m_ObjectHideFlags: 0

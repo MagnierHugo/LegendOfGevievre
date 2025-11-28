@@ -7,21 +7,12 @@ public class Player : MonoBehaviour
     public int CurrentHealth { get; private set; }
     public int CurrentXP { get; private set; } = 0;
 
-    private Collider2D playerCollider;
-
     public static event Action<int, int> OnHealthChanged;
     public static event Action<int> OnXPChanged;
     public static event Action OnPlayerDied;
 
     void Awake()
     {
-        playerCollider = GetComponent<Collider2D>();
-
-        if (playerCollider == null)
-        {
-            Debug.LogError("Player GameObject requires a Collider2D component!");
-        }
-
         CurrentHealth = MaxHealth;
     }
 
@@ -61,16 +52,6 @@ public class Player : MonoBehaviour
         OnXPChanged?.Invoke(CurrentXP);
 
         Debug.Log($"Earned {xpAmount} XP. Total XP: {CurrentXP}");
-
-    }
-
-    public void ToggleCollider(bool isEnabled)
-    {
-        if (playerCollider != null)
-        {
-            playerCollider.enabled = isEnabled;
-            Debug.Log($"Player Collider enabled set to: {isEnabled}");
-        }
     }
 
     private void Die()
@@ -78,7 +59,5 @@ public class Player : MonoBehaviour
         Debug.Log("U ded cunt!");
 
         OnPlayerDied?.Invoke();
-
-        ToggleCollider(false);
     }
 }
