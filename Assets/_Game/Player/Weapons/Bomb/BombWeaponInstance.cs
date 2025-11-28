@@ -14,7 +14,7 @@ public class BombWeaponInstance : MonoBehaviour
     // Static upgrade stats
     private static int range = 5;
     private static int damage = 50;
-    private static int level = 1;
+    public static int level = 1;
     private static int id = 0;
 
     // Flags
@@ -75,7 +75,7 @@ public class BombWeaponInstance : MonoBehaviour
     {
         GameObject e = Instantiate(
             explosionPrefab,
-            new Vector3(Random.Range(-8.0f, 8.0f), Random.Range(-5.0f, 5.0f)),
+            new Vector3(target.x + Random.Range(-5.0f, 5.0f), target.y + Random.Range(-5.0f, 5.0f)),
             Quaternion.identity
         );
         // TODO: Damage the surrounding enemies depending on that position and the range
