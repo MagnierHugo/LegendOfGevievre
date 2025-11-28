@@ -1,6 +1,7 @@
 using System;
 
 using UnityEngine;
+using UnityEngine.UIElements;
 [RequireComponent(typeof(Collider2D))]
 public class BaseMonster : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class BaseMonster : MonoBehaviour
     [SerializeField] private GameObject smallXpOrb = null;
     [SerializeField] private GameObject mediumXpOrb = null;
     [SerializeField] private GameObject largeXpOrb = null;
+    [SerializeField] private GameObject superXpOrb = null;
 
     [Header("Pickable Prefab")]
     [SerializeField] private GameObject healPotion = null;
@@ -51,7 +53,7 @@ public class BaseMonster : MonoBehaviour
         playerHealth?.TakeDamage(AttackDamage);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool xpDrop = true)
     {
         if (lastTimeTookDamage + immunityDuration > Time.time)
             return;
@@ -59,14 +61,17 @@ public class BaseMonster : MonoBehaviour
 
         HealthPoints -= damage;
         if (HealthPoints <= 0)
+        {
+            if (!xpDrop && UnityEngine.Random.value <= 0.01f) // 1% chance
+                    SpawnSuperXpOrb(transform.position);
+
+            if (xpDrop)
+                SpawnXpOrb(transform.position);
+
             Die();
+        }
     }
 
-    private void Die()
-    {
-        OnDeath();
-        Destroy(gameObject);
-    }
 
     protected virtual void Move()
     {
@@ -77,16 +82,19 @@ public class BaseMonster : MonoBehaviour
         transform.position += MoveSpeed * Time.deltaTime * vector.normalized;
     }
 
+    private void Die()
+    {
+        OnDeath();
+        Destroy(gameObject);
+    }
+
     protected virtual void OnDeath()
     {
         spawnPickupable();
-
-
     }
+
     private void spawnPickupable()
     {
-        SpawnXpOrb(transform.position);
-
         float random = UnityEngine.Random.value;
         Vector3 offset = new Vector3(random * 10, random * 10, 0);
 
@@ -108,6 +116,11 @@ public class BaseMonster : MonoBehaviour
 
         else if (random <= 1) // 5% chance of large orb
             Instantiate(largeXpOrb, position, Quaternion.identity);
+    }
+
+    private void SpawnSuperXpOrb(Vector3 position)
+    {
+        Instantiate(superXpOrb, position, Quaternion.identity);
     }
     private void SpawnHeal(Vector3 position)
     {
