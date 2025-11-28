@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 495b8eb18551a3d469e7d743aec3415b
+guid: f14f1cd4f77d71d4c9e5c1b01370e554
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8247833478187902862
-    second: Bomb_PowerUp_0
+      213: 2511574795211095326
+    second: Player_right_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bomb_PowerUp_0
+      name: Player_right_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 40
-        height: 60
+        x: 6
+        y: 2
+        width: 20
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2781906862fc98d80800000000000000
-      internalID: -8247833478187902862
+      spriteID: e1db16728f7ead220800000000000000
+      internalID: 2511574795211095326
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bomb_PowerUp_0: -8247833478187902862
+      Player_right_0: 2511574795211095326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
