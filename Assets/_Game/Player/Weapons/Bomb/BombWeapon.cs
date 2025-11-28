@@ -9,5 +9,4 @@ public class BombWeapon : BaseWeapon
     {
         Instantiate(bombPrefab);
     }
-    public override void Upgrade() { }
 }

@@ -12,5 +12,4 @@ public class ScytheWeapon : BaseWeapon
             .GetComponent<ScytheProjectile>()
             .Init(direction);
     }
-    public override void Upgrade() { }
 }
