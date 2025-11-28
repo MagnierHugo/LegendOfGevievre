@@ -64,8 +64,7 @@ public class ScytheProjectile : MonoBehaviour
     {
         if (other.TryGetComponent(out BaseMonster enemy))
         {
-
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage, false);
         }
     }
 }
