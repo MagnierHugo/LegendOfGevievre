@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PickableManager : MonoBehaviour
 {
-    [SerializeField] private PlayerXP player = null;
-
     [Header("Xp Orbs")]
     [SerializeField] private GameObject smallXpOrb = null;
     [SerializeField] private GameObject mediumXpOrb = null;
     [SerializeField] private GameObject largeXpOrb = null;
+
 
     [Header("Pickable Prefab")]
     [SerializeField] private GameObject healPotion = null;

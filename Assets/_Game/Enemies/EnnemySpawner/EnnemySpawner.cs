@@ -39,12 +39,12 @@ public class EnemySpawner : MonoBehaviour
 
     private GameObject GetEnemyToSpawn()
     {
-        print(GameManager.TimeElapsed);
         while (true)
         {
             SpawnData spawnData = spawnDataList[Random.Range(0, spawnDataList.Count)];
             if (GameManager.TimeElapsed >= spawnData.initialSpawnDelay)
                 return spawnData.prefab;
         }
+
     }
 }
