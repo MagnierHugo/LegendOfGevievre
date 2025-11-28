@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 
 using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
@@ -16,11 +16,19 @@ public class BaseMonster : MonoBehaviour
     [SerializeField] private GameObject mediumXpOrb = null;
     [SerializeField] private GameObject largeXpOrb = null;
 
+    [Header("Pickable Prefab")]
+    [SerializeField] private GameObject healPotion = null;
+    [SerializeField] private GameObject shield = null;
+
     [Header("Attack")]
     [SerializeField] private float attackCooldown;
     private bool inAttackRange = false;
     private PlayerHealth playerHealth;
     private float lastAttackTime;
+
+    [Header("Sprite")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private List<Sprite> sprites;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -34,7 +42,11 @@ public class BaseMonster : MonoBehaviour
             inAttackRange = false;
     }
 
-    private void FixedUpdate() => Move();
+    private void FixedUpdate()
+    {
+        Rotate(Move());
+    }
+
     private void Update()
     {
         if (!inAttackRange)
@@ -64,21 +76,48 @@ public class BaseMonster : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected virtual void Move()
+    protected virtual Vector3 Move()
     {
         Vector3 vector = GameManager.PlayerTransform.position - transform.position;
         if (vector.magnitude < 0.1f)
+            return Vector3.zero;
+
+        Vector3 normalized = vector.normalized;
+        transform.position += MoveSpeed * Time.deltaTime * normalized;
+        return normalized;
+    }
+
+    private void Rotate(Vector3 direction)
+    {
+        if (Mathf.Abs(direction.x) <= .1f) 
             return;
 
-        transform.position += MoveSpeed * Time.deltaTime * vector.normalized;
+        if (direction.x < 0f)
+            spriteRenderer.sprite = sprites[0];
+        else
+            spriteRenderer.sprite = sprites[2];
     }
 
     protected virtual void OnDeath()
     {
+        spawnPickupable();
+
+
+    }
+    private void spawnPickupable()
+    {
         SpawnXpOrb(transform.position);
+
+        float random = UnityEngine.Random.value;
+        Vector3 offset = new Vector3(random * 10, random * 10, 0);
+
+        if (random <= 0.05f)
+            SpawnHeal(transform.position + offset); // Offset so it doesn't spawn on the xp orbs
+        else if (random <= 0.1f)
+            SpawnShield(transform.position + offset);
     }
 
-    public void SpawnXpOrb(Vector3 position)
+    private void SpawnXpOrb(Vector3 position)
     {
         float random = UnityEngine.Random.value;
 
@@ -90,5 +129,14 @@ public class BaseMonster : MonoBehaviour
 
         else if (random <= 1) // 5% chance of large orb
             Instantiate(largeXpOrb, position, Quaternion.identity);
+    }
+    private void SpawnHeal(Vector3 position)
+    {
+        Instantiate(healPotion, position, Quaternion.identity);
+    }
+
+    private void SpawnShield(Vector3 position)
+    {
+        Instantiate(shield, position, Quaternion.identity);
     }
 }

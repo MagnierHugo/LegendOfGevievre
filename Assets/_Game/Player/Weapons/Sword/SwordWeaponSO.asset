@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564112f1f6b61894387dd8a156155657, type: 3}
   m_Name: SwordWeaponSO
   m_EditorClassIdentifier: 
-  swordPrefab: {fileID: 0}
+  swordPrefab: {fileID: 5771004765446567164, guid: 8a8f890e42b2a7444bb39f508a53bb5b, type: 3}

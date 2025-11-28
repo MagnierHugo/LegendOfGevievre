@@ -6,43 +6,48 @@ using UnityEngine;
 public sealed class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private List<Sprite> playerSprite;
     public Vector2 Velocity;
 
-    private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        Velocity = Vector2.zero;
+        Vector2 input = Vector2.zero;
 
-        bool left = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A);
-        bool right = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            input.x = -1;
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            input.x = 1;
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+            input.y = 1;
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+            input.y = -1;
 
-        if (left ^ right)
-            Velocity.x = right ? speed : -speed;
+        // Clamp diagonal movement to keep speed consistent
+        input = Vector2.ClampMagnitude(input, 1);
 
-        bool up = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W);
-        bool down = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S);
+        Velocity = input * speed;
+        transform.position += (Vector3)Velocity * Time.deltaTime;
 
-        if (up ^ down)
-            Velocity.y = up ? speed : -speed;
+        // Movement animation direction priority
+        if (input.x != 0)
+        {
+            // Horizontal priority
+            animator.SetFloat("MoveX", input.x);
+            animator.SetFloat("MoveY", 0);
+        }
+        else
+        {
+            // Only vertical when no horizontal
+            animator.SetFloat("MoveX", 0);
+            animator.SetFloat("MoveY", input.y);
+        }
 
-        transform.position += Time.deltaTime * Vector3.ClampMagnitude(Velocity, speed);
-
-        if (Velocity.y > 0)
-            spriteRenderer.sprite = playerSprite[0];
-        else if (Velocity.y < 0)
-            spriteRenderer.sprite = playerSprite[2];
-
-        if (Velocity.x > 0)
-            spriteRenderer.sprite = playerSprite[1];
-        else if (Velocity.x < 0)
-            spriteRenderer.sprite = playerSprite[3];
-
+        animator.SetBool("IsMoving", input.sqrMagnitude > 0.01f);
     }
 }
