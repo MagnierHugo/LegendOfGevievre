@@ -1,5 +1,6 @@
 #pragma warning disable IDE0090, IDE0060
 
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
