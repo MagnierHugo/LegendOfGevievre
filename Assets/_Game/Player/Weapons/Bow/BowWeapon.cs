@@ -6,7 +6,7 @@ public class BowWeapon : BaseWeapon
 {
     [SerializeField] private Arrow arrowPrefab;
 
-    private int numberOfArrowForChain = 10;
+    private int numberOfArrowForChain = 50;
 
     public override void Attack(GameObject gameObject, Vector2 direction) 
     {
@@ -14,12 +14,12 @@ public class BowWeapon : BaseWeapon
 
         switch (weaponLvl)
         {
-            case 2:
+            case 1:
                 Instantiate(arrowPrefab, gameObject.transform.position, Quaternion.identity)
                     .Init(gameObject.GetComponent<PlayerMovement>(), direction);
                 break;
 
-            case 1:
+            case 2:
                 Quaternion rightRotation = Quaternion.Euler(0, 0, 45f);
                 Quaternion leftRotation = Quaternion.Euler(0, 0, -45f);
                 Vector2 rightRotatedDirection = rightRotation * direction;
