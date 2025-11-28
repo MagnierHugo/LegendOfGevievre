@@ -7,9 +7,6 @@ public class SwordWeaponInstance : MonoBehaviour
 {
     private Transform ownerTransform;
 
-    private float initialSearchTimer;
-    private const float SEARCH_DELAY = 0.5f; 
-
     [Header("Orbit Settings")]
     [Tooltip("Radius of the circle the item orbits in")]
     [SerializeField]
@@ -31,7 +28,6 @@ public class SwordWeaponInstance : MonoBehaviour
     private void Start()
     {
         angle = Random.Range(0f, 360f);
-        initialSearchTimer = 0f;
         FindAndAttachToRandomEnemy();
         Destroy(gameObject, lifeTime);
     }
