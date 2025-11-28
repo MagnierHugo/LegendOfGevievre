@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
@@ -59,7 +60,8 @@ public class PlayerHealth : MonoBehaviour
 	private void Die()
 	{
 		Debug.Log("U ded cunt!");
+        SceneManager.LoadScene("UI_thomas");
 
-		OnPlayerDied?.Invoke();
+        OnPlayerDied?.Invoke();
 	}
 }

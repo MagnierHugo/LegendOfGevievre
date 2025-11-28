@@ -11,13 +11,13 @@ public class ScytheWeapon : BaseWeapon
     {
         switch (weaponLvl)
         {
-            case 0:
+            case 1:
                 Instantiate(scythePrefab, gameObject.transform.position, Quaternion.identity, gameObject.transform)
                     .GetComponent<ScytheProjectile>()
                     .Init(direction);
                 break;
 
-            case 1:
+            case 2:
                 Instantiate(scythePrefab, gameObject.transform.position, Quaternion.identity, gameObject.transform)
                     .GetComponent<ScytheProjectile>()
                     .Init(direction);
@@ -27,7 +27,7 @@ public class ScytheWeapon : BaseWeapon
                     .Init(-direction);
                 break;
 
-            case >= 2:
+            case >= 3:
                 GameObject scythe = Instantiate(scythePrefab, gameObject.transform.position, Quaternion.identity, gameObject.transform);
                 scythe.GetComponent<ScytheProjectile>().Init(direction);
                 scythe.transform.localScale = new Vector3(2f, 2f, 1f);
