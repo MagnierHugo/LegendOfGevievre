@@ -1,4 +1,5 @@
 using System;
+
 using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class BaseMonster : MonoBehaviour
@@ -6,6 +7,9 @@ public class BaseMonster : MonoBehaviour
     [field: SerializeField] public int HealthPoints { get; protected set; } = 10;
     [field: SerializeField] public int AttackDamage { get; protected set; } = 5;
     [field: SerializeField] public float MoveSpeed { get; protected set; } = 2f;
+
+    [SerializeField] private float immunityDuration = .3f;
+    private float lastTimeTookDamage = float.MinValue;
 
     [Header("Xp Orbs")]
     [SerializeField] private GameObject smallXpOrb = null;
@@ -17,6 +21,11 @@ public class BaseMonster : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (lastTimeTookDamage + immunityDuration > Time.time)
+            return;
+        lastTimeTookDamage = Time.time;
+
+        print("Took damage");
         HealthPoints -= damage;
         if (HealthPoints <= 0)
             Die();

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public static class JobSystemManager
 {
-    private static List<Transform> allEnemyTransforms = new List<Transform>();
+    public static List<Transform> allEnemyTransforms = new List<Transform>();
     private static float globalSpeed = 2f;
     private static NativeArray<float3> positions;
     private static NativeArray<float3> velocities;

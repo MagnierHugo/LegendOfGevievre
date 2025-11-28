@@ -5,10 +5,10 @@ public class BombWeapon : BaseWeapon
 {
     [SerializeField] private GameObject bombPrefab;
 
-    public override void CreateInstance() 
+    public override void Attack(GameObject _) 
     {
         Instantiate(bombPrefab);
         Debug.Log("Instanciated bomb");
     }
-    public override void UpgradeInstance() {}
+    public override void UpgradeInstance() { }
 }

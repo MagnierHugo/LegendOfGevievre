@@ -1,4 +1,7 @@
 using System.Collections.Generic;
+
+using System;
+
 using UnityEngine;
 
 public class ScytheController : MonoBehaviour
@@ -9,7 +12,6 @@ public class ScytheController : MonoBehaviour
     [SerializeField] private Transform playerTransform;
 
     private float cooldownTimer;
-
     private void Update()
     {
         cooldownTimer -= Time.deltaTime;
@@ -23,7 +25,8 @@ public class ScytheController : MonoBehaviour
 
     private void Attack()
     {
-        if (scythePrefab == null) return;
+        if (scythePrefab == null)
+            return;
 
         GameObject scythe = Instantiate(scythePrefab, playerTransform.position, Quaternion.identity);
 
