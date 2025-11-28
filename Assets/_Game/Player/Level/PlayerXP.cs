@@ -102,7 +102,10 @@ public class PlayerXP : MonoBehaviour
             powerUpData.powerUp.Upgrade();
         }
         else
+        {
+            powerUpData.powerUp.upgradeLevel = 0;
             playerAttack.weapons.Add(powerUpData.powerUp);
+        }
 
         panelLevelUp.SetActive(false);
         GameManager.Instance.TogglePause();

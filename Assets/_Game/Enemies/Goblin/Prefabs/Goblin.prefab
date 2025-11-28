@@ -154,8 +154,10 @@ MonoBehaviour:
   smallXpOrb: {fileID: 2253935087238467499, guid: efeee385d32489246b900ac1779e9613, type: 3}
   mediumXpOrb: {fileID: 4130174000466095868, guid: ceb7a06df1d6ef54085a52a9eaf13bb6, type: 3}
   largeXpOrb: {fileID: 621715295570744929, guid: 2f8bc92566a77a6469bcd226162bc90f, type: 3}
+  superXpOrb: {fileID: 621715295570744929, guid: 5cfb42aa870acbb49bf29a26e0b2feb6, type: 3}
   healPotion: {fileID: 536600928649553450, guid: 4f26755b7fc4358428f3dcfa2b756c49, type: 3}
   shield: {fileID: 2585095668070486598, guid: a02570daa88a3fa4bb051dcf1bf949c5, type: 3}
+  magnet: {fileID: 3874539962786026758, guid: 9b716dd936b121c49ac51c28c710d953, type: 3}
   attackCooldown: 2
   spriteRenderer: {fileID: 5013434870093876852}
   sprites:

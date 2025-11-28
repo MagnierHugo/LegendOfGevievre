@@ -1,5 +1,87 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2874689054570521196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7195938677811217574}
+  - component: {fileID: 2566680803541428281}
+  - component: {fileID: 4268942495898512812}
+  m_Layer: 0
+  m_Name: XpMagnet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7195938677811217574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2874689054570521196}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4593646755622213846}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &2566680803541428281
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2874689054570521196}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 1
+--- !u!114 &4268942495898512812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2874689054570521196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba3e769e9d9f2eb4caba4f42d89e1aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupRange: 1
 --- !u!1 &8611942290779122933
 GameObject:
   m_ObjectHideFlags: 0
@@ -16,7 +98,6 @@ GameObject:
   - component: {fileID: 8593219257531226543}
   - component: {fileID: 2295156284372577453}
   - component: {fileID: 5094245988796285967}
-  - component: {fileID: 188699260192116827}
   - component: {fileID: 3378075698989456117}
   - component: {fileID: 1288276874032165771}
   m_Layer: 0
@@ -38,7 +119,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7195938677811217574}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4434230788021744680
@@ -231,14 +313,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  playerSprite:
-  - {fileID: 1243182719892263300, guid: ba511cad2607c0b4f9db30ab9aa08e2d, type: 3}
-  - {fileID: 2511574795211095326, guid: f14f1cd4f77d71d4c9e5c1b01370e554, type: 3}
-  - {fileID: -3624963018517930303, guid: 9ead36fccf3f4094eb8c8b3036b16ebf, type: 3}
-  - {fileID: -4507236107445626916, guid: f08e6784f719df942a9e183cc3c39f13, type: 3}
-  - {fileID: 0}
-  - {fileID: -4507236107445626916, guid: f08e6784f719df942a9e183cc3c39f13, type: 3}
-  - {fileID: 2511574795211095326, guid: f14f1cd4f77d71d4c9e5c1b01370e554, type: 3}
   Velocity: {x: 0, y: 0}
 --- !u!114 &2295156284372577453
 MonoBehaviour:
@@ -252,10 +326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33847bcf6790e7a4089bb33607b498c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healPotion: {fileID: 0}
-  shield: {fileID: 0}
-  healPotionParent: {fileID: 0}
-  shieldParent: {fileID: 0}
 --- !u!114 &5094245988796285967
 MonoBehaviour:
   m_ObjectHideFlags: 0
