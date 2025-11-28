@@ -16,6 +16,10 @@ public class BaseMonster : MonoBehaviour
     [SerializeField] private GameObject mediumXpOrb = null;
     [SerializeField] private GameObject largeXpOrb = null;
 
+    [Header("Pickable Prefab")]
+    [SerializeField] private GameObject healPotion = null;
+    [SerializeField] private GameObject shield = null;
+
     [Header("Attack")]
     [SerializeField] private float attackCooldown;
     private bool inAttackRange = false;
@@ -75,10 +79,24 @@ public class BaseMonster : MonoBehaviour
 
     protected virtual void OnDeath()
     {
+        spawnPickupable();
+
+
+    }
+    private void spawnPickupable()
+    {
         SpawnXpOrb(transform.position);
+
+        float random = UnityEngine.Random.value;
+        Vector3 offset = new Vector3(random * 10, random * 10, 0);
+
+        if (random <= 0.05f)
+            SpawnHeal(transform.position + offset); // Offset so it doesn't spawn on the xp orbs
+        else if (random <= 0.1f)
+            SpawnShield(transform.position + offset);
     }
 
-    public void SpawnXpOrb(Vector3 position)
+    private void SpawnXpOrb(Vector3 position)
     {
         float random = UnityEngine.Random.value;
 
@@ -90,5 +108,14 @@ public class BaseMonster : MonoBehaviour
 
         else if (random <= 1) // 5% chance of large orb
             Instantiate(largeXpOrb, position, Quaternion.identity);
+    }
+    private void SpawnHeal(Vector3 position)
+    {
+        Instantiate(healPotion, position, Quaternion.identity);
+    }
+
+    private void SpawnShield(Vector3 position)
+    {
+        Instantiate(shield, position, Quaternion.identity);
     }
 }
