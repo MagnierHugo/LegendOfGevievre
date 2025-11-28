@@ -1,14 +1,20 @@
+using System.Collections;
 using UnityEngine;
 
 public class KnifeWeaponInstance : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private bool isActive = true;
-    [SerializeField] private int damage;
-    private void Update()
+    private int damage;
+    private float lifeTime = .5f;
+
+   
+    public void Init(int dmg)
     {
-        
+        damage = dmg;
+        Destroy(gameObject, lifeTime);
     }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!isActive)

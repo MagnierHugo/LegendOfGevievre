@@ -17,7 +17,7 @@ public class PlayerAttack : MonoBehaviour
         attackTimer += Time.deltaTime;
         if (attackTimer > 1 / attackRate)
         {
-            for (int i = 0;  i < weapons.Count; i++)
+            for (int i = 0; i < weapons.Count; i++)
             {
                 weapons[i].Attack(gameObject, CalculateAttackDirection());
             }
@@ -28,7 +28,6 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 CalculateAttackDirection()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        print(mousePos);
         return (mousePos - (Vector2)transform.position).normalized;
     }
 }
