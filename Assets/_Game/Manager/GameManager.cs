@@ -24,12 +24,5 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start() => JobSystemManager.Init();
-
-    private void Update()
-    {
-        timeElapsed += Time.deltaTime;
-
-        JobSystemManager.MoveEnemies(playerTransform);
-    }
+    private void Update() => timeElapsed += Time.deltaTime;
 }

@@ -7,8 +7,35 @@ public class BaseMonster : MonoBehaviour
     [field: SerializeField] public int AttackDamage { get; protected set; } = 5;
     [field: SerializeField] public float MoveSpeed { get; protected set; } = 2f;
 
-    public void Awake() => JobSystemManager.RegisterEnemy(transform);
-    private void OnDestroy() => JobSystemManager.UnregisterEnemy(transform);
+    private bool inAttackRange = false;
+    private PlayerHealth playerHealth;
+    private float lastAttackTime;
+    [SerializeField] private float attackCooldown;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.TryGetComponent<PlayerHealth>(out playerHealth))
+            inAttackRange = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.TryGetComponent<PlayerHealth>(out playerHealth))
+            inAttackRange = false;
+    }
+
+    private void FixedUpdate() => Move();
+    private void Update()
+    {
+        if (!inAttackRange)
+            return;
+
+        if (lastAttackTime + attackCooldown > Time.time)
+            return;
+
+        lastAttackTime = Time.time;
+        playerHealth.TakeDamage(AttackDamage);
+    }
 
     public void TakeDamage(int damage)
     {
@@ -21,6 +48,15 @@ public class BaseMonster : MonoBehaviour
     {
         OnDeath();
         Destroy(gameObject);
+    }
+
+    protected virtual void Move()
+    {
+        Vector3 vector = GameManager.PlayerTransform.position - transform.position;
+        if (vector.magnitude < 0.1f)
+            return;
+
+        transform.position += MoveSpeed * Time.deltaTime * vector.normalized;
     }
 
     protected virtual void OnDeath() { }
