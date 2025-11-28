@@ -1,11 +1,6 @@
 using UnityEngine;
 
-public class Sield
+public class Shield
 {
-    [SerializeField] private int shieldValue = 0;
-
-    public int GetShieldValue()
-    {
-        return shieldValue;
-    }
+    [SerializeField] public int ShieldValue { get; private set; }
 }

@@ -16,15 +16,13 @@ public class JobSystemManager : MonoBehaviour
 
     private float3 playerPos;
 
-    void Start()
+    private void Start()
     {
         nativePositions = new NativeArray<float3>(maxEnemyCount, Allocator.Persistent);       
         nativeVelocities = new NativeArray<float3>(maxEnemyCount, Allocator.Persistent);
 
         for (int i = 0; i < allEnemyTransforms.Length; i++)
-        {
             nativePositions[i] = allEnemyTransforms[i].position;
-        }
     }
 
     void Update()
@@ -46,20 +44,22 @@ public class JobSystemManager : MonoBehaviour
         handle.Complete();
 
         for (int i = 0; i < allEnemyTransforms.Length; i++)
-        {
             allEnemyTransforms[i].position = nativePositions[i];
-        }
     }
 
     private void OnDestroy()
     {
-        if (nativePositions.IsCreated) nativePositions.Dispose();
-        if (nativeVelocities.IsCreated) nativeVelocities.Dispose();
+        if (nativePositions.IsCreated)
+            nativePositions.Dispose();
+
+        if (nativeVelocities.IsCreated)
+            nativeVelocities.Dispose();
     }
 
     public void RegisterEnemy(Transform enemyTransform)
     {
-        if (currentActiveEnemies >= maxEnemyCount) return;
+        if (currentActiveEnemies >= maxEnemyCount)
+            return;
 
         allEnemyTransforms[currentActiveEnemies] = enemyTransform;
 
