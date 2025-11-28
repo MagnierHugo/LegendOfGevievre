@@ -54,7 +54,8 @@ public static class JobSystemManager
 
     public static void RegisterEnemy(Transform enemyTransform)
     {
-        if (currentActiveEnemies >= maxEnemyCount) return;
+        if (currentActiveEnemies >= maxEnemyCount)
+            return;
 
         allEnemyTransforms[currentActiveEnemies] = enemyTransform;
 

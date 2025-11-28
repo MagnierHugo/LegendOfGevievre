@@ -6,10 +6,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform playerTransform;
 
     private float timePassed = 0f;
-    public static float TimePassed
-    {
-        get { return Instance.timePassed; }
-    }
+    public static float TimePassed => Instance.timePassed;
 
     void Awake()
     {

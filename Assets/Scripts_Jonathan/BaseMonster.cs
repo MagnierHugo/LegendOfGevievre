@@ -13,7 +13,7 @@ public class BaseMonster : MonoBehaviour
 
     private void OnDestroy()
     {
-        JobSystemManager.UnregisterEnemy(monsterTransform);
+        JobSystemManager.UnregisterEnemy(monsterTransform);     
     }
 
     public float GetMoveSpeed()

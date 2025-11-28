@@ -14,13 +14,13 @@ public class MonsterManager : MonoBehaviour
         for (int i = 0; i < activeMonster.Count; i++)
         {
             BaseMonster enemy = activeMonster[i];
-            Vector3 direction = playerPos - enemy.monsterTransform.position;
+            Vector3 direction = playerPos - enemy.transform.position;
 
             if (direction.sqrMagnitude > 0.1f)
             {
-                enemy.monsterTransform.position += direction.normalized * enemy.GetMoveSpeed() * deltaTime;
+                enemy.transform.position += deltaTime * enemy.GetMoveSpeed() * direction.normalized;
 
-                enemy.monsterTransform.up = direction;
+                enemy.transform.up = direction;
             }
             else
             {

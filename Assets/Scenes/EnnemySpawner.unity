@@ -180,11 +180,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnDataList:
+<<<<<<< HEAD
   - prefab: {fileID: 2382559051595686469, guid: 40e7d8b194a5211408189c554395cd78, type: 3}
     initialeSpawnDelay: 0
   - prefab: {fileID: 1309937958539672577, guid: bc73a2c7b66b7cc46a43826b6a5a348d, type: 3}
     initialeSpawnDelay: 0
   - prefab: {fileID: 2340880090251228723, guid: 60349cc3203dfbe4aa5e0401c5ffa565, type: 3}
+=======
+  - prefab: {fileID: 2340880090251228723, guid: 60349cc3203dfbe4aa5e0401c5ffa565, type: 3}
+    initialeSpawnDelay: 0
+  - prefab: {fileID: 0}
+    initialeSpawnDelay: 0
+  - prefab: {fileID: 0}
+>>>>>>> 29ba42afbc6b4e88550a02124adadba42d9333d6
     initialeSpawnDelay: 0
   minSpawnRadius: 10
   maxSpawnRadius: 20
