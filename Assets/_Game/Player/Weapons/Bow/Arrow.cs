@@ -15,6 +15,9 @@ public class Arrow : MonoBehaviour
     private bool isActive = true;
     public void Init(PlayerMovement playerMovement, Vector2 direction)
     {
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle + 45f);
+
         velocity = direction * speed;
         stutterDuration_ = new WaitForSeconds(stutterDuration);
         liveDuration_ = new WaitForSeconds(liveDuration);

@@ -8,7 +8,6 @@ public class BowWeapon : BaseWeapon
     public override void Attack(GameObject gameObject, Vector2 direction) 
     {
         Instantiate(arrowPrefab, gameObject.transform.position, Quaternion.identity)
-            .Init(gameObject.GetComponent<PlayerMovement>(), direction)
-        ;
+            .Init(gameObject.GetComponent<PlayerMovement>(), direction);
     }
 }

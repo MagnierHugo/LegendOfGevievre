@@ -25,8 +25,9 @@ public class BombWeaponInstance : MonoBehaviour
     private Vector3 target;
     private Vector2 direction;
 
-    public void Init(Vector2 direction_)
+    public void Init(Vector2 direction_, int currentLevel)
     {
+        level = currentLevel;
         direction = direction_;
         index = id;
         launchForce = initialJumpForce * Random.Range(0.8f, 1.2f);
@@ -39,7 +40,6 @@ public class BombWeaponInstance : MonoBehaviour
     {
         damage += 10;
         range++;
-        level++;
     }
 
     void Update()

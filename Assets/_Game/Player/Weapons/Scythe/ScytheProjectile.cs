@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class ScytheProjectile : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float rotationSpeed = 360f;
     [SerializeField] private float lifetime = 0.5f;
 
@@ -36,7 +35,9 @@ public class ScytheProjectile : MonoBehaviour
 
     public void Init(Vector2 direction)
     {
-        //rb.linearVelocity = direction.normalized * moveSpeed;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+        rb.linearVelocity = Vector2.zero;
     }
 
     private void Update()
