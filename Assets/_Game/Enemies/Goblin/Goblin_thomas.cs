@@ -1,3 +1,3 @@
 using UnityEngine;
 
-public class Goblin : Monster { }
+public class Goblin : BaseMonster { }

@@ -5,17 +5,24 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    static GameManager()
-    {
-        GameObject gameObject = new GameObject("GameManager");
-        Instance = gameObject.AddComponent<GameManager>();
-        DontDestroyOnLoad(gameObject);
-    }
 
     [SerializeField] private Transform playerTransform;
+    public static Transform PlayerTransform => Instance.playerTransform;
 
     private float timeElapsed = 0f;
     public static float TimeElapsed => Instance.timeElapsed;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start() => JobSystemManager.Init();
 

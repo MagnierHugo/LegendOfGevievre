@@ -57,7 +57,7 @@ public static class JobSystemManager
         if (currentActiveEnemies >= maxEnemyCount)
             return;
 
-        allEnemyTransforms[currentActiveEnemies] = enemyTransform;
+        allEnemyTransforms.Add(enemyTransform);
 
         positions[currentActiveEnemies] = enemyTransform.position;
 
@@ -66,6 +66,9 @@ public static class JobSystemManager
 
     public static void UnregisterEnemy(Transform enemyTransform)
     {
+        if (!allEnemyTransforms.Contains(enemyTransform))
+            return;
+
         int indexToRemove = allEnemyTransforms.IndexOf(enemyTransform);
         int lastIndex = currentActiveEnemies - 1;
 
