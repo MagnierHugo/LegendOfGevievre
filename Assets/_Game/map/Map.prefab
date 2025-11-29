@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 6190086963140676797}
   - component: {fileID: 2780861620254445739}
   m_Layer: 0
-  m_Name: Map de samer
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

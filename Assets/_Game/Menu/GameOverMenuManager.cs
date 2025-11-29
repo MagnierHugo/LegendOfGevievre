@@ -6,7 +6,8 @@ public class GameOverMenuManager : MonoBehaviour
 {
     public void TryAgain()
     {
-        // Reload a new game
+        SceneManager.LoadScene("Game");
+        GameManager.Reset_();
     }
 
     public void ReturnToMenu()

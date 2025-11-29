@@ -138,3 +138,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <XpValue>k__BackingField: 100
+  baseSpeed: 5
+  acceleration: 10

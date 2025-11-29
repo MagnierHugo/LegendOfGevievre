@@ -8,6 +8,7 @@ public class MainMenuManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Game");
+        GameManager.Reset_();
     }
 
     // Loads the options menu scene (replace "OptionsScene" with your scene name)
@@ -16,10 +17,10 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("OptionsMenu");
     }
 
-    // Quits the application
+    // Quit the application
     public void QuitGame()
     {
-        Debug.Log("Quit Game!"); // Just for editor testing
+        Debug.Log("Quit Game!");
         Application.Quit();
     }
 }

@@ -7,8 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private Transform playerTransform;
-    public static Transform PlayerTransform => Instance.playerTransform;
+    public static Transform PlayerTransform => PlayerMovement.Instance.transform;
 
     private float timeElapsed = 0f;
     public static float TimeElapsed => Instance.timeElapsed;
@@ -34,5 +33,10 @@ public class GameManager : MonoBehaviour
     {
         GamePaused = !GamePaused;
         Time.timeScale = GamePaused ? 0f : 1f;
+    }
+
+    public static void Reset_()
+    {
+        Instance.timeElapsed = 0;
     }
 }

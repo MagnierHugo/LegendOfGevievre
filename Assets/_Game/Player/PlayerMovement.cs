@@ -5,13 +5,15 @@ using UnityEngine;
 [DefaultExecutionOrder(-1)]
 public sealed class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance { get; private set; }
     [SerializeField] private float speed;
     public Vector2 Velocity;
 
     private Animator animator;
 
-    private void Start()
+    private void Awake()
     {
+        Instance = this;
         animator = GetComponent<Animator>();
     }
 
