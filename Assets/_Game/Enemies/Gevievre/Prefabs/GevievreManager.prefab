@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gevievrePrefab: {fileID: 7078920896522888462, guid: 55fda0d402ba5ab41903830330b986f2, type: 3}
   parentPrefab: {fileID: 5410201259775513574, guid: 67000e52a4bf1b14c85cb1cdf216c675, type: 3}
-  chanceToSpawn: 0.05
+  chanceToSpawn: 0.00003
   groupeRadius: 5
   numberOfGevievre: 20
   minBounds: {x: -32, y: -32}
