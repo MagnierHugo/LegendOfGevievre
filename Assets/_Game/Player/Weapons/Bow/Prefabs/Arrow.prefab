@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stutterDuration: 0.2
-  liveDuration: 0.7
+  liveDuration: 0.4
   lifeTime: 10
   speed: 10
   damage: 1

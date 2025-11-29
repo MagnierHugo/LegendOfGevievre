@@ -140,3 +140,4 @@ MonoBehaviour:
   <XpValue>k__BackingField: 1000
   baseSpeed: 5
   acceleration: 10
+  isSuper: 1

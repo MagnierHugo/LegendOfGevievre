@@ -6,7 +6,7 @@ public class CameraFollow2D : MonoBehaviour
     public float smoothSpeed = 0.125f;
     public Vector3 offset;         // Décalage de la caméra (généralement Z = -10)
 
-    public Vector2 minLimits = Vector2.zero;
+    public Vector2 minLimits;
     public Vector2 maxLimits;
 
     

@@ -71,7 +71,7 @@ public class BaseMonster : MonoBehaviour
         HealthPoints -= damage;
         if (HealthPoints <= 0)
         {
-            if (!xpDrop && UnityEngine.Random.value <= 0.01f) // 1% chance
+            if (!xpDrop && UnityEngine.Random.value <= 0.2f) // 1% chance
                     SpawnSuperXpOrb(transform.position);
 
             if (xpDrop)
