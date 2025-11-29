@@ -6,8 +6,8 @@ public class BowWeapon : BaseWeapon
 {
     [SerializeField] private Arrow arrowPrefab;
 
-    private int numberOfArrowForChain = 50;
-
+    private float numberOfArrow = 10f;
+    
     public override void Attack(GameObject gameObject, Vector2 direction) 
     {
         MonoBehaviour coroutineRunner = gameObject.GetComponent<PlayerMovement>();
@@ -35,22 +35,19 @@ public class BowWeapon : BaseWeapon
                     .Init(gameObject.GetComponent<PlayerMovement>(), leftRotatedDirection);
                 break;
 
-            case >= 3:
+            default:
                 if (coroutineRunner != null)
                     coroutineRunner.StartCoroutine(ChainArrow(gameObject, direction));
-                break;
-
-            default:
                 break;
         }
     }
 
     private IEnumerator ChainArrow(GameObject gameObject, Vector2 direction)
     {
-        float timeBetweenArrows = 1f/numberOfArrowForChain;
-        float angleStep = 360f / numberOfArrowForChain;
+        float timeBetweenArrows = 1f/ numberOfArrow;
+        float angleStep = 360f / numberOfArrow;
 
-        for (int i = 0; i < numberOfArrowForChain; i++)
+        for (int i = 0; i < numberOfArrow; i++)
         {
             float currentAngle = angleStep * i;
             Quaternion rotation = Quaternion.Euler(0, 0, currentAngle);

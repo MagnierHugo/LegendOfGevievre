@@ -102,10 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d59d401a862f0e4385321da832b2717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
   rotationSpeed: -360
   lifetime: 0.5
-  damage: 1000
+  damage: 10
   animationSprite:
   - {fileID: -5191173407025567798, guid: 9d40d2e0be31e894195ec5bb86d59882, type: 3}
   - {fileID: 3577160993053018605, guid: 6334b99325a311743869389a926166b4, type: 3}

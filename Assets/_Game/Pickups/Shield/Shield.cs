@@ -2,7 +2,7 @@ using UnityEngine;
 
 public sealed class Shield : BasePickupable
 {
-    [field: SerializeField] public int ShieldValue { get; private set; }
+    [field: SerializeField] public int ShieldValue { get; private set; } = 100;
 
     protected sealed override void OnPickup(GameObject gameObject_)
     {

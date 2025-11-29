@@ -42,7 +42,7 @@ public class PlayerXP : MonoBehaviour
         while (CurrentXP >= xpMax) // While loop allows multi-level XP bursts
         {
             CurrentXP -= xpMax;  // Keep leftover XP
-            xpMax += 10;         // Increase required XP
+            xpMax *= 2;         // Increase required XP
 
             waitingForPowerSelection = true;
             LevelUpUI();         // Handles UI + power selection

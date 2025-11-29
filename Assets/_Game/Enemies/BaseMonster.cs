@@ -40,10 +40,12 @@ public class BaseMonster : MonoBehaviour
             inAttackRange = true;
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void Awake()
     {
-        if (other.TryGetComponent<PlayerHealth>(out playerHealth))
-            inAttackRange = false;
+        float timeRatio = Time.time / 10f;
+        HealthPoints += HealthPoints * (int)(0.01f * timeRatio);
+        AttackDamage += AttackDamage * (int)(0.01f * timeRatio);
+        MoveSpeed += MoveSpeed * (int)(0.01f * timeRatio);
     }
 
     private void FixedUpdate()
@@ -72,7 +74,7 @@ public class BaseMonster : MonoBehaviour
         HealthPoints -= damage;
         if (HealthPoints <= 0)
         {
-            if (!xpDrop && Random.value <= 0.2f) // 1% chance
+            if (!xpDrop && Random.value <= 0.001f) // 0.1% chance
                SpawnSuperXpOrb(transform.position);
 
             if (xpDrop)
@@ -117,46 +119,42 @@ public class BaseMonster : MonoBehaviour
 
     private void spawnPickupable()
     {
-        float random = UnityEngine.Random.value;
+        float random = Random.value;
         Vector3 offset = new Vector3(random * 10, random * 10, 0);
 
-        if (random <= 0.025f)
-            SpawnHeal(transform.position + offset); // Offset so it doesn't spawn on the xp orbs
-        else if (random <= 0.033f)
-            SpawnShield(transform.position + offset);
-        else if (random <= 0.05f)
-            SpawnMagnet(transform.position + offset);
+        if (random <= 0.01f) // 1% chance
+        {
+            int randomPickupable = Random.Range(1, 4);
+            GameObject pickupableToSpawn = randomPickupable switch
+            {
+                1 => healPotion,
+                2 => shield,
+                _ => magnet
+            };
+
+            Instantiate(pickupableToSpawn, transform.position + offset, Quaternion.identity);
+        }
     }
 
     private void SpawnXpOrb(Vector3 position)
     {
-        float random = UnityEngine.Random.value;
+        float random = Random.value;
 
-        if (random <= 0.7) // 70% chance of small orb
-            Instantiate(smallXpOrb, position, Quaternion.identity);
-
-        else if (random <= 0.95) // 25% chance of medium orb
-            Instantiate(mediumXpOrb, position, Quaternion.identity);
-
-        else if (random <= 1) // 5% chance of large orb
-            Instantiate(largeXpOrb, position, Quaternion.identity);
+        GameObject orbToSpawn = random switch
+        {
+            <= 0.7f => smallXpOrb,
+            <= 0.95f => mediumXpOrb,
+            _ => largeXpOrb
+        };
+        
+        if (orbToSpawn != null)
+        {
+            Instantiate(orbToSpawn, position, Quaternion.identity);
+        }
     }
 
     private void SpawnSuperXpOrb(Vector3 position)
     {
         Instantiate(superXpOrb, position, Quaternion.identity);
-    }
-    private void SpawnHeal(Vector3 position)
-    {
-        Instantiate(healPotion, position, Quaternion.identity);
-    }
-
-    private void SpawnShield(Vector3 position)
-    {
-        Instantiate(shield, position, Quaternion.identity);
-    }
-    private void SpawnMagnet(Vector3 position)
-    {
-        Instantiate(magnet, position, Quaternion.identity);
     }
 }

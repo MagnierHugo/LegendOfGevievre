@@ -31,7 +31,7 @@ public class BombWeaponInstance : MonoBehaviour
         index = id;
         launchForce = initialJumpForce * Random.Range(0.8f, 1.2f);
         target = transform.position + (Vector3)direction * range;
-        Debug.Log("Target is " + target.ToString());
+        //Debug.Log("Target is " + target.ToString());
         id++;
     }
     
@@ -64,7 +64,7 @@ public class BombWeaponInstance : MonoBehaviour
         Vector2 screenPos = Camera.main.WorldToScreenPoint(transform.position);
         if (screenPos.x > Screen.width || screenPos.y > Screen.height || screenPos.y < 0 || screenPos.x < 0)
         {
-            Debug.Log("They missed :skull: nahh");
+            //Debug.Log("They missed :skull: nahh");
             Destroy(gameObject);
         }
     }
@@ -79,7 +79,7 @@ public class BombWeaponInstance : MonoBehaviour
         // TODO: Damage the surrounding enemies depending on that position and the range
         Destroy(e, destroySmokeDelay);
 
-        Debug.Log($"Bomb #{index} exploded at {e.transform.position}");
+        //Debug.Log($"Bomb #{index} exploded at {e.transform.position}");
     }
 
 }

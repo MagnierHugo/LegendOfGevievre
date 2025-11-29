@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb644d5c8a88bfd4c9512cbfb4329763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <XpValue>k__BackingField: 10
   baseSpeed: 5
   acceleration: 10
+  <XpValue>k__BackingField: 5
+  isSuper: 0
