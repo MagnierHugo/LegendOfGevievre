@@ -1,7 +1,4 @@
-using NUnit.Framework;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 [DefaultExecutionOrder(-1)]
 public sealed class PlayerMovement : MonoBehaviour

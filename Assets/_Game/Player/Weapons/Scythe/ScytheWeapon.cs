@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 [CreateAssetMenu(fileName = "ScytheWeapon", menuName = "Scriptable Objects/Scythe Weapon")]
 public class ScytheWeapon : BaseWeapon

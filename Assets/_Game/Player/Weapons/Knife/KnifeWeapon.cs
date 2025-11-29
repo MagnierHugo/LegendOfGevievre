@@ -1,4 +1,3 @@
-using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "KnifeWeapon", menuName = "Scriptable Objects/Knife Weapon")]
