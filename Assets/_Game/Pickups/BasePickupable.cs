@@ -1,5 +1,5 @@
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+
 
 [RequireComponent(typeof(Collider2D))]
 public abstract class BasePickupable : MonoBehaviour

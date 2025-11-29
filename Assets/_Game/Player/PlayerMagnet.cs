@@ -16,9 +16,9 @@ public class PlayerMagnet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out XpOrb xpOrb))
+        if (other.TryGetComponent(out BasePickupable basePickupable))
         {
-            xpOrb.StartAttraction(transform.parent);
+            basePickupable.StartAttraction(transform.parent);
         }
     }
 

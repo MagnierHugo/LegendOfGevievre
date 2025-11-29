@@ -317,6 +317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   Velocity: {x: 0, y: 0}
+  minLimits: {x: -31.5, y: -31.5}
+  maxLimits: {x: 30.5, y: 30.5}
 --- !u!114 &5094245988796285967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 11400000, guid: e4d17420106f2d640ac30ffc9b888322, type: 2}
+  - {fileID: 11400000, guid: 426225a3bba6f28409cb5b37184ad7c1, type: 2}
   attackRate: 1
 --- !u!95 &1288276874032165771
 Animator:
