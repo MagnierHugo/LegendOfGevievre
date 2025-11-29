@@ -689,6 +689,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1046832314}
     m_Modifications:
+    - target: {fileID: 103569314817176770, guid: e30b7df4c32f85c448988c7361196868, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2934613352634640341, guid: e30b7df4c32f85c448988c7361196868, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -979,6 +983,22 @@ PrefabInstance:
       propertyPath: shieldSlider
       value: 
       objectReference: {fileID: 944200453}
+    - target: {fileID: 8593219257531226543, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: maxLimits.x
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593219257531226543, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: maxLimits.y
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593219257531226543, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: minLimits.x
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593219257531226543, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: minLimits.y
+      value: -32
+      objectReference: {fileID: 0}
     - target: {fileID: 8611942290779122933, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1175,6 +1195,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4806237102760261128, guid: f74a17e6496a85049a81875982eb2b00, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083681777802330466, guid: f74a17e6496a85049a81875982eb2b00, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5293362321300565616, guid: f74a17e6496a85049a81875982eb2b00, type: 3}
