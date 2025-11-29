@@ -851,6 +851,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1046832314}
     m_Modifications:
+    - target: {fileID: 2066109398193324017, guid: b6e2c1c577a4db74ab78508c93c74e75, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2804238012168820060, guid: b6e2c1c577a4db74ab78508c93c74e75, type: 3}
       propertyPath: m_Name
       value: shieldBar
