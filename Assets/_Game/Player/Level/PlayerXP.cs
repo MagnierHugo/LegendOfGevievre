@@ -78,7 +78,7 @@ public class PlayerXP : MonoBehaviour
             int r = Random.Range(0, available.Count);
 
             cards[compteur].sprite = available[r].Icon; // Sprite initialization
-            //levelCards[compteur].text = $"{available[r].CurrentLevel + 1}";
+            levelCards[compteur].text = $"{available[r].CurrentLevel + 1}";
             var hover = cards[compteur].GetComponent<HoverCards>();
             hover.Init(available[r], SelectPowerUp);
 
@@ -103,6 +103,7 @@ public class PlayerXP : MonoBehaviour
             powerUpData.powerUp.Upgrade();
         else
         {
+            powerUpData.powerUp.ResetWeaponLevel();
             playerAttack.weapons.Add(powerUpData.powerUp);
         }
 

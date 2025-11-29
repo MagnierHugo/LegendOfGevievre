@@ -124,7 +124,6 @@ public class MapGenerator : MonoBehaviour
                 yield return null;
             }
 
-        Debug.Log("Natural Map Generation Complete. Attempting to place cities...");
         PlaceCities(); // CHANGÉ: Appel à la nouvelle fonction de placement
     }
 
@@ -244,7 +243,7 @@ public class MapGenerator : MonoBehaviour
             // NOUVEAU: Vérifie la disponibilité du terrain ET l'absence de chevauchement avec une autre ville
             if (IsAreaAvailableForNewCity(randomX, randomY))
             {
-                Debug.Log($"City {placedCount + 1} successfully placed at: ({randomX}, {randomY}).");
+                //Debug.Log($"City {placedCount + 1} successfully placed at: ({randomX}, {randomY}).");
                 DrawCity(randomX, randomY);
                 placedCount++;
             }
@@ -256,7 +255,7 @@ public class MapGenerator : MonoBehaviour
         }
         else
         {
-            Debug.Log($"Successfully placed {placedCount} cities.");
+            //Debug.Log($"Successfully placed {placedCount} cities.");
         }
     }
     

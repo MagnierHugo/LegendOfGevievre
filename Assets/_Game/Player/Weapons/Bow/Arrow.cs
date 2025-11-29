@@ -1,5 +1,4 @@
 using System.Collections;
-
 using UnityEngine;
 
 public class Arrow : MonoBehaviour
@@ -13,6 +12,7 @@ public class Arrow : MonoBehaviour
     [SerializeField] private int damage;
     private Vector3 velocity;
     private bool isActive = true;
+
     public void Init(PlayerMovement playerMovement, Vector2 direction)
     {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -33,9 +33,8 @@ public class Arrow : MonoBehaviour
     
     private IEnumerator CycleStutterAndLive()
     {
-        for ( ;isActive || !isActive; isActive = !isActive)
+        for (; isActive || !isActive; isActive = !isActive)
             yield return isActive ? liveDuration_ : stutterDuration_;
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -45,7 +44,6 @@ public class Arrow : MonoBehaviour
 
         if (other.TryGetComponent<BaseMonster>(out var baseMonster))
             baseMonster.TakeDamage(damage);
-
     }
 
 }

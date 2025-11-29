@@ -6,9 +6,14 @@ public class PlayerAttack : MonoBehaviour
 {
     public List<BaseWeapon> weapons;
 
-
     private float attackTimer;
     [SerializeField] private float attackRate;
+
+    private void Start()
+    {
+        for (int i = 0; i < weapons.Count; i++)
+            weapons[i].ResetWeaponLevel();
+    }
 
 
     private void Update()

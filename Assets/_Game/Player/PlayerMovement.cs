@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 [DefaultExecutionOrder(-1)]
 public sealed class PlayerMovement : MonoBehaviour
@@ -9,10 +10,22 @@ public sealed class PlayerMovement : MonoBehaviour
     public Vector2 Velocity;
 
     private Animator animator;
+    private Transform cameraTransform;
 
+    public Vector2 minLimits;
+    public Vector2 maxLimits;
     private void Start()
     {
         animator = GetComponent<Animator>();
+
+        if (Camera.main != null)
+        {
+            cameraTransform = Camera.main.transform;
+        }
+        else
+        {
+            Debug.LogError("No Main Camera found!");
+        }
     }
 
     private void Update()
@@ -30,10 +43,28 @@ public sealed class PlayerMovement : MonoBehaviour
 
         // Clamp diagonal movement to keep speed consistent
         input = Vector2.ClampMagnitude(input, 1);
+        Vector2 desiredPosition = (Vector2)transform.position + input * speed * Time.deltaTime;
 
-        Velocity = input * speed;
+        Vector3 moveDir;
+        if (cameraTransform != null)
+        {
+            moveDir = (cameraTransform.right * input.x) + (cameraTransform.up * input.y);
+            moveDir.z = 0;
+            moveDir.Normalize();
+        }
+        else
+        {
+            moveDir = input;
+        }
+
+        Velocity = moveDir * speed;
         transform.position += (Vector3)Velocity * Time.deltaTime;
 
+        desiredPosition.x = Mathf.Clamp(desiredPosition.x, minLimits.x, maxLimits.x);
+        desiredPosition.y = Mathf.Clamp(desiredPosition.y, minLimits.y, maxLimits.y);
+
+        transform.position = desiredPosition;
+        
         // Movement animation direction priority
         if (input.x != 0)
         {
