@@ -14,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
     }
 
     [SerializeField] private List<SpawnData> spawnDataList = new List<SpawnData>();
+    [SerializeField] private Vector2Int mapBottomLeft = new Vector2Int(-32, -32);
+    [SerializeField] private Vector2Int mapTopRight = new Vector2Int(32, 32);
     [SerializeField] private float minSpawnRadius = 10f;
     [SerializeField] private float maxSpawnRadius = 20f;
     [Tooltip("Time between enemy spawn in seconds")]
@@ -27,7 +29,11 @@ public class EnemySpawner : MonoBehaviour
         if (spawnTimer >= spawnDelay)
         {
             GameObject ennemy = GetEnemyToSpawn();
-            Vector2 position = Random.insideUnitCircle.normalized * Random.Range(minSpawnRadius, maxSpawnRadius);
+            Vector2 position = Random.insideUnitCircle.normalized * Random.Range(minSpawnRadius, maxSpawnRadius) + (Vector2)GameManager.PlayerTransform.position;
+            position = new Vector2(
+                position.x <= mapBottomLeft.x ? mapBottomLeft.x : position.x >= mapTopRight.x ? mapTopRight.x : position.x,
+                position.y <= mapBottomLeft.y ? mapBottomLeft.y : position.y >= mapTopRight.y ? mapTopRight.y : position.y
+            );
             Instantiate(ennemy, position, Quaternion.identity, transform);
             spawnTimer = 0f;
             if (minSpawnDelay < spawnDelay)

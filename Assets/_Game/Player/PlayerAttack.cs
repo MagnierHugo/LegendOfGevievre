@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
         attackTimer += Time.deltaTime;
         if (attackTimer > 1 / attackRate)
         {
-            for (int i = 0;  i < weapons.Count; i++)
+            for (int i = 0; i < weapons.Count; i++)
             {
                 weapons[i].Attack(gameObject, CalculateAttackDirection());
             }
