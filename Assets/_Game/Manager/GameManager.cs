@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     public static void Reset_()
     {
-        Instance.timeElapsed = 0;
+        if(Instance != null)
+            Instance.timeElapsed = 0;
     }
 }
