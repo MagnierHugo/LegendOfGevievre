@@ -11,6 +11,7 @@ public class BaseMonster : MonoBehaviour
 
     [SerializeField] private float immunityDuration = .3f;
     private float lastTimeTookDamage = float.MinValue;
+    [SerializeField] private float damageFlashDuration;
 
     [Header("Xp Orbs")]
     [SerializeField] private GameObject smallXpOrb = null;
@@ -71,8 +72,8 @@ public class BaseMonster : MonoBehaviour
         HealthPoints -= damage;
         if (HealthPoints <= 0)
         {
-            if (!xpDrop && UnityEngine.Random.value <= 0.2f) // 1% chance
-                    SpawnSuperXpOrb(transform.position);
+            if (!xpDrop && Random.value <= 0.2f) // 1% chance
+               SpawnSuperXpOrb(transform.position);
 
             if (xpDrop)
                 SpawnXpOrb(transform.position);
@@ -98,9 +99,9 @@ public class BaseMonster : MonoBehaviour
             return;
 
         if (direction.x < 0f)
-            spriteRenderer.sprite = sprites[0];
+            spriteRenderer.sprite = lastTimeTookDamage + damageFlashDuration > Time.time ? sprites[1] : sprites[0];
         else
-            spriteRenderer.sprite = sprites[2];
+            spriteRenderer.sprite = lastTimeTookDamage + damageFlashDuration > Time.time ? sprites[3] : sprites[2];
     }
 
     private void Die()
@@ -119,11 +120,11 @@ public class BaseMonster : MonoBehaviour
         float random = UnityEngine.Random.value;
         Vector3 offset = new Vector3(random * 10, random * 10, 0);
 
-        if (random <= 0.05f)
+        if (random <= 0.025f)
             SpawnHeal(transform.position + offset); // Offset so it doesn't spawn on the xp orbs
-        else if (random <= 0.1f)
+        else if (random <= 0.033f)
             SpawnShield(transform.position + offset);
-        else if (random <= 0.2f)
+        else if (random <= 0.05f)
             SpawnMagnet(transform.position + offset);
     }
 

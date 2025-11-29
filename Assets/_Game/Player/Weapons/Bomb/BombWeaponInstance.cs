@@ -13,7 +13,6 @@ public class BombWeaponInstance : MonoBehaviour
 
     // Static upgrade stats
     private static int range = 5;
-    private static int damage = 50;
     public static int level = 1;
     private static int id = 0;
 
@@ -38,7 +37,6 @@ public class BombWeaponInstance : MonoBehaviour
     
     public void Upgrade()
     {
-        damage += 10;
         range++;
     }
 

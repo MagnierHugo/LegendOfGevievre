@@ -79,15 +79,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -1328329982814723433, guid: b32179f5224758641b70fcccc7537129, type: 3}
+  m_Sprite: {fileID: 3903735922045246820, guid: b12aef5f830400246a619ac5114ee9f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &-3194459230569174713
@@ -128,8 +128,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.51, y: 0.6}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 1.18}
+    newSize: {x: 1, y: 1.18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -179,6 +179,7 @@ MonoBehaviour:
   <AttackDamage>k__BackingField: 5
   <MoveSpeed>k__BackingField: 1.5
   immunityDuration: 0.3
+  damageFlashDuration: 0.3
   smallXpOrb: {fileID: 2253935087238467499, guid: efeee385d32489246b900ac1779e9613, type: 3}
   mediumXpOrb: {fileID: 4130174000466095868, guid: ceb7a06df1d6ef54085a52a9eaf13bb6, type: 3}
   largeXpOrb: {fileID: 621715295570744929, guid: 2f8bc92566a77a6469bcd226162bc90f, type: 3}
@@ -196,3 +197,5 @@ MonoBehaviour:
   projectilePrefab: {fileID: 55039970388698421, guid: 9f3bdfd7446649d4f81e9d80dc895735, type: 3}
   distanceToPlayer: 7
   maxShootingCooldown: 5
+  minBounds: {x: -32, y: -32}
+  maxBounds: {x: 32, y: 32}
