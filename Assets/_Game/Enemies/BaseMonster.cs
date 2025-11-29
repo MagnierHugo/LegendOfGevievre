@@ -73,7 +73,7 @@ public class BaseMonster : MonoBehaviour
         if (HealthPoints <= 0)
         {
             if (!xpDrop && Random.value <= 0.2f) // 1% chance
-                    SpawnSuperXpOrb(transform.position);
+               SpawnSuperXpOrb(transform.position);
 
             if (xpDrop)
                 SpawnXpOrb(transform.position);
@@ -120,11 +120,11 @@ public class BaseMonster : MonoBehaviour
         float random = UnityEngine.Random.value;
         Vector3 offset = new Vector3(random * 10, random * 10, 0);
 
-        if (random <= 0.05f)
+        if (random <= 0.025f)
             SpawnHeal(transform.position + offset); // Offset so it doesn't spawn on the xp orbs
-        else if (random <= 0.1f)
+        else if (random <= 0.033f)
             SpawnShield(transform.position + offset);
-        else if (random <= 0.2f)
+        else if (random <= 0.05f)
             SpawnMagnet(transform.position + offset);
     }
 
