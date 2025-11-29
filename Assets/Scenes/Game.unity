@@ -979,6 +979,22 @@ PrefabInstance:
       propertyPath: shieldSlider
       value: 
       objectReference: {fileID: 944200453}
+    - target: {fileID: 8593219257531226543, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: maxLimits.x
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593219257531226543, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: maxLimits.y
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593219257531226543, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: minLimits.x
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593219257531226543, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: minLimits.y
+      value: -32
+      objectReference: {fileID: 0}
     - target: {fileID: 8611942290779122933, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
       propertyPath: m_Name
       value: Player
