@@ -336,6 +336,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1778143234}
+    - target: {fileID: 2552938401111542737, guid: 772461ecc06b7824eaa08fd2aad472ce, type: 3}
+      propertyPath: offset.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4928574125957062379, guid: 772461ecc06b7824eaa08fd2aad472ce, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -919,6 +923,14 @@ PrefabInstance:
       propertyPath: 'levelCards.Array.data[2]'
       value: 
       objectReference: {fileID: 787129091}
+    - target: {fileID: 2254437429885837548, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: allPowerUps.Array.data[0].CurrentLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378075698989456117, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
+      propertyPath: 'weapons.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 426225a3bba6f28409cb5b37184ad7c1, type: 2}
     - target: {fileID: 4593646755622213846, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -958,14 +970,6 @@ PrefabInstance:
     - target: {fileID: 4593646755622213846, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5094245988796285967, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
-      propertyPath: maxHealth
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5094245988796285967, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
-      propertyPath: maxShield
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5094245988796285967, guid: 4220991219a25df4ea6d9f8016eba003, type: 3}
       propertyPath: healthSlider
