@@ -41,7 +41,3 @@ Embrace the chaos! Each weapon in Legend of Gevievre has a mind of its own:
 2. Extract the zip file to your preferred location
 3. Run `LegendOfGevievre.exe` to start the game
 4. Survive the chaos and embrace the bugs!
-
----
-
-*Remember: In this world, bugs aren't mistakes—they're opportunities for creative problem-solving!*
