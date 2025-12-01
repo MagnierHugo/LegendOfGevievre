@@ -6,7 +6,7 @@ What happens when standard game mechanics are intentionally broken? In Legend of
 
 ## Key Features
 
-- **Procedurally Generated Maps**: Every playthrough offers a fresh challenge with maps created using Wave Function Collapse algorithm
+- **Procedurally Generated Maps**: Every playthrough offers a fresh challenge with maps created using a Noise-guided tilemap generation with rulesets
 - **3 Distinct Monster Types**: Each enemy has unique AI behaviors that will test your survival skills
 - **4 "Bugged" Weapons**: Each weapon comes with 3 upgrade tiers and refuses to work the way it should
 
